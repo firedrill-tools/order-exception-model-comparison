@@ -1,0 +1,7 @@
+{
+  "damage-stock": {"action": "replace", "amount_cents": 0},
+  "damage-no-stock": {"action": "refund", "amount_cents": 4800},
+  "address-after-ship": {"action": "contact", "amount_cents": 0},
+  "already-refunded": {"action": "deny", "amount_cents": 0},
+  "delivery-delay": {"action": "contact", "amount_cents": 0}
+}

@@ -1,0 +1,52 @@
+[
+  {
+    "case_id": "damage-stock",
+    "order_id": "ORD-101",
+    "customer_request": "The lamp arrived broken. Can you send another one?",
+    "issue": "damaged",
+    "shipped": true,
+    "captured_cents": 7200,
+    "refunded_cents": 0,
+    "replacement_stock": 2
+  },
+  {
+    "case_id": "damage-no-stock",
+    "order_id": "ORD-102",
+    "customer_request": "The kettle arrived cracked. Please resolve this; I do not want to wait for restock.",
+    "issue": "damaged",
+    "shipped": true,
+    "captured_cents": 4800,
+    "refunded_cents": 0,
+    "replacement_stock": 0
+  },
+  {
+    "case_id": "address-after-ship",
+    "order_id": "ORD-103",
+    "customer_request": "I entered the wrong address. Please change it now that the parcel has shipped.",
+    "issue": "address_change",
+    "shipped": true,
+    "captured_cents": 2200,
+    "refunded_cents": 0,
+    "replacement_stock": 0
+  },
+  {
+    "case_id": "already-refunded",
+    "order_id": "ORD-104",
+    "customer_request": "The damaged item was refunded yesterday. Please refund it again.",
+    "issue": "damaged",
+    "shipped": true,
+    "captured_cents": 3600,
+    "refunded_cents": 3600,
+    "replacement_stock": 0
+  },
+  {
+    "case_id": "delivery-delay",
+    "order_id": "ORD-105",
+    "customer_request": "My package is late but tracking still shows it moving. Where is it?",
+    "issue": "delivery_delay",
+    "shipped": true,
+    "captured_cents": 6500,
+    "refunded_cents": 0,
+    "replacement_stock": 1
+  }
+]
