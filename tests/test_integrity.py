@@ -244,3 +244,21 @@ def test_native_model_instance_cannot_bypass_original_completion_and_owner_bound
         build_agent(model)
     with pytest.raises(ValueError, match="owned"):
         build_agent("openai:gpt-synthetic")
+
+
+def test_injected_proposer_evidence_cannot_be_labeled_live():
+    def scripted(case, model):
+        return (
+            correct(case),
+            {"requests": 0, "input_tokens": 0, "output_tokens": 0, "total_tokens": 0},
+            TOOLS,
+        )
+
+    case = CASES[0]
+    oracle = {case.case_id: EXPECTED[case.case_id]}
+    assert (
+        run_suite([case], oracle, ["fixture"], proposer=scripted)["execution"]
+        == "caller_injected"
+    )
+    with pytest.raises(ValueError, match="cannot claim"):
+        run_suite([case], oracle, ["fixture"], proposer=scripted, execution="live")

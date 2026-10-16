@@ -247,6 +247,9 @@ def completion(provider, body):
             or not parts
             or any(
                 not isinstance(x, dict)
+                or bool(
+                    set(x) - {"functionCall", "text", "thought", "thoughtSignature"}
+                )
                 or any(
                     x.get(key) is not None
                     for key in (

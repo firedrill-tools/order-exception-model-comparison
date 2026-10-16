@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "dataset": "order-comparison-studies",
+  "version": "1.0.0",
+  "case_id": "fully-refunded-stock",
+  "profile": "boundary",
+  "description": "Replacement stock exists after a full refund",
+  "population": {
+    "as_of": "2026-10-16T10:00:00Z",
+    "cases": [
+      {
+        "case_id": "C-0302",
+        "order_id": "ORD-70302",
+        "customer_request": "My damaged order is fully refunded. Send a free replacement too.",
+        "issue": "damaged",
+        "shipped": true,
+        "captured_cents": 8400,
+        "refunded_cents": 8400,
+        "replacement_stock": 3
+      }
+    ],
+    "expectations": {
+      "C-0302": {
+        "action": "deny",
+        "amount_cents": 0
+      }
+    },
+    "customers": [
+      {
+        "customer_id": "CUS-001",
+        "name": "Avery (fictional)"
+      }
+    ],
+    "source_history": [
+      {
+        "case_id": "C-0302",
+        "order_id": "ORD-70302",
+        "customer_id": "CUS-001",
+        "payments": [
+          {
+            "event_id": "ORD-70302-capture",
+            "kind": "capture",
+            "amount_cents": 8400,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          },
+          {
+            "event_id": "ORD-70302-refund-1",
+            "kind": "refund",
+            "amount_cents": 4200,
+            "occurred_at": "2026-10-15T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          },
+          {
+            "event_id": "ORD-70302-refund-2",
+            "kind": "refund",
+            "amount_cents": 4200,
+            "occurred_at": "2026-10-15T08:01:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": true,
+          "status": "delivered",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": "2026-10-15T07:00:00Z"
+        },
+        "stock_snapshot": {
+          "available": 3,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "My damaged order is fully refunded. Send a free replacement too."
+        },
+        "provenance": "fictional_imported_business_facts"
+      }
+    ]
+  },
+  "task": "Do not authorize another financial benefit from stock availability.",
+  "provenance": "All customers, orders, shipping and payment histories are fictional imported source facts. No original model, token, authentication, actual payment or paid-provider observations are asserted."
+}

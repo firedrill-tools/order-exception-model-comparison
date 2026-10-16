@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "dataset": "order-comparison-studies",
+  "version": "1.0.0",
+  "case_id": "address-before-shipment",
+  "profile": "boundary",
+  "description": "Address clarification before shipment with proposal-only actions",
+  "population": {
+    "as_of": "2026-10-16T10:00:00Z",
+    "cases": [
+      {
+        "case_id": "C-0305",
+        "order_id": "ORD-70305",
+        "customer_request": "Please confirm a corrected destination before this order is dispatched.",
+        "issue": "address_change",
+        "shipped": false,
+        "captured_cents": 2100,
+        "refunded_cents": 0,
+        "replacement_stock": 0
+      }
+    ],
+    "expectations": {
+      "C-0305": {
+        "action": "contact",
+        "amount_cents": 0
+      }
+    },
+    "customers": [
+      {
+        "customer_id": "CUS-001",
+        "name": "Avery (fictional)"
+      }
+    ],
+    "source_history": [
+      {
+        "case_id": "C-0305",
+        "order_id": "ORD-70305",
+        "customer_id": "CUS-001",
+        "payments": [
+          {
+            "event_id": "ORD-70305-capture",
+            "kind": "capture",
+            "amount_cents": 2100,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": false,
+          "status": "pending",
+          "shipped_at": null,
+          "delivered_at": null
+        },
+        "stock_snapshot": {
+          "available": 0,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "Please confirm a corrected destination before this order is dispatched."
+        },
+        "provenance": "fictional_imported_business_facts"
+      }
+    ]
+  },
+  "task": "Propose customer clarification; this application cannot change an address.",
+  "provenance": "All customers, orders, shipping and payment histories are fictional imported source facts. No original model, token, authentication, actual payment or paid-provider observations are asserted."
+}

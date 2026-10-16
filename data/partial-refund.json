@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "dataset": "order-comparison-studies",
+  "version": "1.0.0",
+  "case_id": "partial-refund",
+  "profile": "starter",
+  "description": "Prior partial refund leaves an exact remaining balance",
+  "population": {
+    "as_of": "2026-10-16T10:00:00Z",
+    "cases": [
+      {
+        "case_id": "C-0102",
+        "order_id": "ORD-70102",
+        "customer_request": "The item arrived damaged. Please resolve the issue.",
+        "issue": "damaged",
+        "shipped": true,
+        "captured_cents": 9600,
+        "refunded_cents": 2400,
+        "replacement_stock": 0
+      }
+    ],
+    "expectations": {
+      "C-0102": {
+        "action": "refund",
+        "amount_cents": 7200
+      }
+    },
+    "customers": [
+      {
+        "customer_id": "CUS-001",
+        "name": "Avery (fictional)"
+      }
+    ],
+    "source_history": [
+      {
+        "case_id": "C-0102",
+        "order_id": "ORD-70102",
+        "customer_id": "CUS-001",
+        "payments": [
+          {
+            "event_id": "ORD-70102-capture",
+            "kind": "capture",
+            "amount_cents": 9600,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          },
+          {
+            "event_id": "ORD-70102-refund-1",
+            "kind": "refund",
+            "amount_cents": 1200,
+            "occurred_at": "2026-10-15T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          },
+          {
+            "event_id": "ORD-70102-refund-2",
+            "kind": "refund",
+            "amount_cents": 1200,
+            "occurred_at": "2026-10-15T08:01:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": true,
+          "status": "delivered",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": "2026-10-15T07:00:00Z"
+        },
+        "stock_snapshot": {
+          "available": 0,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "The item arrived damaged. Please resolve the issue."
+        },
+        "provenance": "fictional_imported_business_facts"
+      }
+    ]
+  },
+  "task": "Resolve the damaged item using the remaining captured balance.",
+  "provenance": "All customers, orders, shipping and payment histories are fictional imported source facts. No original model, token, authentication, actual payment or paid-provider observations are asserted."
+}

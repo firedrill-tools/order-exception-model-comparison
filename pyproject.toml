@@ -4,10 +4,14 @@ build-backend = "hatchling.build"
 
 [project]
 name = "order-exception-model-comparison"
-version = "0.1.0"
+version = "0.2.0"
+readme = "README.md"
 description = "Pydantic AI order exception agent and measured cross-provider comparison"
 requires-python = ">=3.12"
 dependencies = ["pydantic-ai-slim[openai,anthropic,google]==2.56.0", "openai==3.31.0", "anthropic==1.14.0", "google-genai==2.31.0", "httpx==0.28.1", "httpx2==2.13.1"]
+
+[project.scripts]
+compare-orders = "order_compare.__main__:cli"
 
 [project.optional-dependencies]
 test = ["pytest>=8,<10"]
@@ -17,3 +21,11 @@ packages = ["src/order_compare"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"data" = "order_compare/sample_data"
+"fixtures/cases.json" = "order_compare/original_data/cases.json"
+"grader/expected.json" = "order_compare/original_data/expected.json"
+
+[tool.hatch.build.targets.sdist]
+include = ["src", "data", "fixtures", "grader", "tests", "scripts", ".github", "README.md", "AGENTS.md", "PLAN.md", "COMPATIBILITY.md", "pyproject.toml", "uv.lock", ".gitignore"]

@@ -12,6 +12,13 @@ from pathlib import Path
 from .comparison import run_suite_async
 from .source import Study, validate_models
 from .native import DEFAULT_URLS, REQUEST_LIMIT
+from .datasets import (
+    list_cases,
+    initialize_workspace,
+    inspect_workspace,
+    reset_workspace,
+    original_paths,
+)
 
 
 def publish_report(path, report):
@@ -102,15 +109,44 @@ async def execute(study, models, args):
 
 
 def main():
+    import pydantic_ai
+
+    # Public console-output setting; embedding APIs keep the caller's setting.
+    pydantic_ai.BANNER_ENABLED = False
     logging.disable(logging.CRITICAL)
-    root = Path(__file__).resolve().parents[2]
+    arguments = sys.argv[1:]
+    if arguments and arguments[0] in {"datasets", "init", "workspace", "reset"}:
+        parser = argparse.ArgumentParser(
+            description="Private model-free comparison studies"
+        )
+        commands = parser.add_subparsers(dest="command", required=True)
+        commands.add_parser("datasets")
+        initialize = commands.add_parser("init")
+        initialize.add_argument("--case", required=True)
+        initialize.add_argument("--directory", type=Path, required=True)
+        inspect = commands.add_parser("workspace")
+        inspect.add_argument("directory", type=Path)
+        reset = commands.add_parser("reset")
+        reset.add_argument("directory", type=Path)
+        reset.add_argument("--to", type=Path, required=True)
+        reset.add_argument("--instance", required=True)
+        args = parser.parse_args(arguments)
+        if args.command == "datasets":
+            result = list_cases()
+        elif args.command == "init":
+            result = initialize_workspace(args.case, args.directory)
+        elif args.command == "workspace":
+            result = inspect_workspace(args.directory)
+        else:
+            result = reset_workspace(args.directory, args.to, args.instance)
+        print(json.dumps(result, indent=2))
+        return 0
+    default_cases, default_expected = original_paths()
     parser = argparse.ArgumentParser(
         description="Compare the same immutable order cases with bounded native requests"
     )
-    parser.add_argument("--cases", type=Path, default=root / "fixtures/cases.json")
-    parser.add_argument(
-        "--expectations", type=Path, default=root / "grader/expected.json"
-    )
+    parser.add_argument("--cases", type=Path, default=default_cases)
+    parser.add_argument("--expectations", type=Path, default=default_expected)
     parser.add_argument(
         "--model",
         action="append",

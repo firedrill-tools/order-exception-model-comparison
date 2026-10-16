@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "dataset": "order-comparison-studies",
+  "version": "1.0.0",
+  "case_id": "replacement",
+  "profile": "starter",
+  "description": "Damaged captured order with replacement stock",
+  "population": {
+    "as_of": "2026-10-16T10:00:00Z",
+    "cases": [
+      {
+        "case_id": "C-0101",
+        "order_id": "ORD-70101",
+        "customer_request": "The item arrived damaged. Please resolve the issue.",
+        "issue": "damaged",
+        "shipped": true,
+        "captured_cents": 7200,
+        "refunded_cents": 0,
+        "replacement_stock": 2
+      }
+    ],
+    "expectations": {
+      "C-0101": {
+        "action": "replace",
+        "amount_cents": 0
+      }
+    },
+    "customers": [
+      {
+        "customer_id": "CUS-001",
+        "name": "Avery (fictional)"
+      }
+    ],
+    "source_history": [
+      {
+        "case_id": "C-0101",
+        "order_id": "ORD-70101",
+        "customer_id": "CUS-001",
+        "payments": [
+          {
+            "event_id": "ORD-70101-capture",
+            "kind": "capture",
+            "amount_cents": 7200,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": true,
+          "status": "delivered",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": "2026-10-15T07:00:00Z"
+        },
+        "stock_snapshot": {
+          "available": 2,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "The item arrived damaged. Please resolve the issue."
+        },
+        "provenance": "fictional_imported_business_facts"
+      }
+    ]
+  },
+  "task": "Use current source and policy for the damaged item.",
+  "provenance": "All customers, orders, shipping and payment histories are fictional imported source facts. No original model, token, authentication, actual payment or paid-provider observations are asserted."
+}

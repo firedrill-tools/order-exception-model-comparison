@@ -160,8 +160,11 @@ def test_normal_cli_actual_native_http_same_sources_and_failed_provider_continua
             "--max-provider-requests",
             str(len(providers) * 6),
         ]
+        env = environment()
+        for key in ("PYDANTIC_AI_NO_BANNER", "PYTEST_VERSION", "CI"):
+            env.pop(key, None)
         child = subprocess.run(
-            args, env=environment(), capture_output=True, text=True, timeout=20
+            args, env=env, capture_output=True, text=True, timeout=20
         )
         assert child.returncode == (1 if stop else 0), child.stdout + child.stderr
         result = json.loads(child.stdout)

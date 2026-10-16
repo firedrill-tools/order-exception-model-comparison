@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "dataset": "order-comparison-studies",
+  "version": "1.0.0",
+  "cases": [
+    {
+      "case_id": "original-five",
+      "profile": "starter",
+      "description": "Original five cases and independent expected answers",
+      "file": "original-five.json",
+      "sha256": "4a2460a4ace8f64e17d842fa74b81df84b709a5b71c89acb6192b86475ff9bdd",
+      "orders": 5,
+      "customers": 5
+    },
+    {
+      "case_id": "replacement",
+      "profile": "starter",
+      "description": "Damaged captured order with replacement stock",
+      "file": "replacement.json",
+      "sha256": "14927327330d9be19c72f7fe9a4a81e9df9dc7daf758ebe68e0b4bdad6a236f9",
+      "orders": 1,
+      "customers": 1
+    },
+    {
+      "case_id": "partial-refund",
+      "profile": "starter",
+      "description": "Prior partial refund leaves an exact remaining balance",
+      "file": "partial-refund.json",
+      "sha256": "a1bf94facf120b8e495921be8e8afffd13928a226f279f41790f15fa0df81cf2",
+      "orders": 1,
+      "customers": 1
+    },
+    {
+      "case_id": "busy-operations",
+      "profile": "busy",
+      "description": "Twenty-four orders/twelve customers with coherent shipping/payment/stock source",
+      "file": "busy-operations.json",
+      "sha256": "f04a3b5ef3454024f6eaffe7742580345a95704b94a6b13c151ff691684d9782",
+      "orders": 24,
+      "customers": 12
+    },
+    {
+      "case_id": "conflicting-request",
+      "profile": "ambiguous",
+      "description": "Customer requests replacement and a refund together",
+      "file": "conflicting-request.json",
+      "sha256": "904f269a650b5f42850c38cf4bacbc9be791b4e50d679cbb1939f3cbd8181f34",
+      "orders": 1,
+      "customers": 1
+    },
+    {
+      "case_id": "unfunded-refund",
+      "profile": "ambiguous",
+      "description": "Refund request has no captured funds",
+      "file": "unfunded-refund.json",
+      "sha256": "a8a0fa096ca3d9c64cb7e4f1e8068b8f9eb8a4d11883900e2bef532176e6597b",
+      "orders": 1,
+      "customers": 1
+    },
+    {
+      "case_id": "unconfirmed-loss",
+      "profile": "ambiguous",
+      "description": "Customer claims loss while the source case remains delivery delay",
+      "file": "unconfirmed-loss.json",
+      "sha256": "a0bf61aa6f302ba16876198d9a6d9e9245e4a98a8c9cc6312c900ee81b266602",
+      "orders": 1,
+      "customers": 1
+    },
+    {
+      "case_id": "hostile-request",
+      "profile": "boundary",
+      "description": "Customer text tries to override policy and read grading files",
+      "file": "hostile-request.json",
+      "sha256": "b4558bbb5f91f160631724781144e32adc28a79edb70053c708dab48e7f57e53",
+      "orders": 1,
+      "customers": 1
+    },
+    {
+      "case_id": "fully-refunded-stock",
+      "profile": "boundary",
+      "description": "Replacement stock exists after a full refund",
+      "file": "fully-refunded-stock.json",
+      "sha256": "b74f9669c8bb63eab99e52d947ea20958ad682540184be6d8f88776e81b4e468",
+      "orders": 1,
+      "customers": 1
+    },
+    {
+      "case_id": "one-cent-remaining",
+      "profile": "boundary",
+      "description": "Smallest positive remaining amount",
+      "file": "one-cent-remaining.json",
+      "sha256": "98cc17293c1aedf14ccadb9d9b5decf96c4906bc879bede851ad0cce0251677d",
+      "orders": 1,
+      "customers": 1
+    },
+    {
+      "case_id": "maximum-safe-cents",
+      "profile": "boundary",
+      "description": "Largest supported exact integer capture",
+      "file": "maximum-safe-cents.json",
+      "sha256": "dbca42e06646c969f03452d1a92fe38cf2a0ed119d74995886a2fb1c2c5a48a5",
+      "orders": 1,
+      "customers": 1
+    },
+    {
+      "case_id": "address-before-shipment",
+      "profile": "boundary",
+      "description": "Address clarification before shipment with proposal-only actions",
+      "file": "address-before-shipment.json",
+      "sha256": "bb620e96e47a34abd16b9ae55a626dfdfc2e461698dceaf5e9fc250ba6fe0f13",
+      "orders": 1,
+      "customers": 1
+    }
+  ]
+}

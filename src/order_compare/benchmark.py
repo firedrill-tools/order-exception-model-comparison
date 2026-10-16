@@ -66,7 +66,7 @@ def run_suite(
     expectations: dict[str, dict],
     models: list[str],
     proposer=propose,
-    execution: str = "live",
+    execution: str | None = None,
 ) -> dict:
     cases = [OrderCase.model_validate(case).model_copy(deep=True) for case in cases]
     expectations = deepcopy(expectations)
@@ -86,6 +86,14 @@ def run_suite(
         key: Expectation.model_validate(value).model_dump()
         for key, value in expectations.items()
     }
+    if proposer is propose:
+        if execution not in (None, "native_provider"):
+            raise ValueError("native execution cannot be labeled an offline fixture")
+        execution = "native_provider"
+    else:
+        if execution not in (None, "offline_fixture", "caller_injected"):
+            raise ValueError("injected proposer cannot claim native or live evidence")
+        execution = execution or "caller_injected"
     suite_started_at = datetime.now(timezone.utc).isoformat()
     results = []
     for model in models:

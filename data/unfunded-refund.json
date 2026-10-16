@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "dataset": "order-comparison-studies",
+  "version": "1.0.0",
+  "case_id": "unfunded-refund",
+  "profile": "ambiguous",
+  "description": "Refund request has no captured funds",
+  "population": {
+    "as_of": "2026-10-16T10:00:00Z",
+    "cases": [
+      {
+        "case_id": "C-0202",
+        "order_id": "ORD-70202",
+        "customer_request": "Please refund what I paid, although the imported payment record has no capture.",
+        "issue": "damaged",
+        "shipped": true,
+        "captured_cents": 0,
+        "refunded_cents": 0,
+        "replacement_stock": 0
+      }
+    ],
+    "expectations": {
+      "C-0202": {
+        "action": "deny",
+        "amount_cents": 0
+      }
+    },
+    "customers": [
+      {
+        "customer_id": "CUS-001",
+        "name": "Avery (fictional)"
+      }
+    ],
+    "source_history": [
+      {
+        "case_id": "C-0202",
+        "order_id": "ORD-70202",
+        "customer_id": "CUS-001",
+        "payments": [],
+        "shipping": {
+          "shipped": true,
+          "status": "delivered",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": "2026-10-15T07:00:00Z"
+        },
+        "stock_snapshot": {
+          "available": 0,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "Please refund what I paid, although the imported payment record has no capture."
+        },
+        "provenance": "fictional_imported_business_facts"
+      }
+    ]
+  },
+  "task": "Do not invent captured funds from customer text.",
+  "provenance": "All customers, orders, shipping and payment histories are fictional imported source facts. No original model, token, authentication, actual payment or paid-provider observations are asserted."
+}

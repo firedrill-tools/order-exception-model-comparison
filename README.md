@@ -59,4 +59,49 @@ A provider/case failure with confirmed cleanup is recorded and the suite continu
 
 Normal CLI local HTTP qualifies all three providers, same input/policy authority, explicit auth/proxy policy, continuation after rejected length output, request-ceiling/collision preflight, missing-key evidence and SIGINT/SIGTERM/SIGHUP cleanup. The signal path saves a partial comparison containing interrupted/unstarted rows after native drain. `--output` publishes a new0600 report exclusively; existing reports are preserved. A successful complete comparison returns0, completed policy/exact failures2, provider/infrastructure failure1, and signals130/143/129. Private traces distinguish original source/protocol/measurement evidence from structural grading; no semantic or billing quality is inferred.
 
-Richer hash-bound source populations/private initialization/readback/reset and fresh locked distributions remain active in [PLAN.md](PLAN.md). This is a standalone proposal/comparison application; all actual test endpoints were local/synthetic, no paid provider or order/payment mutation. Live semantic/billing review, qualified new Firedrill and publication/license remain parked.
+Data/private workspace and distribution qualification follows below; [PLAN.md](PLAN.md) retains final CI and the portfolio handoff. This is a standalone proposal/comparison application; all actual test endpoints were local/synthetic, no paid provider or order/payment mutation. Live semantic/billing review, qualified new Firedrill and publication/license remain parked.
+
+
+## Versioned study populations
+
+97 checks pass locally. `order-comparison-studies`1.0.0 contains twelve hash-bound populations/four profiles. All customers, payments, shipment histories and stock snapshots are fictional imported business source; prior model/token/authentication/actual payment/paid-provider observations are unavailable. External expected answers remain in a separate file and never enter the model context.
+
+| Profile | Populations |
+| --- | --- |
+| Starter | original-five (unchanged business cases/oracle), replacement, partial-refund |
+| Busy | busy-operations:24 orders,12 customers,44 coherent capture/refund events |
+| Ambiguous | conflicting-request, unfunded-refund, unconfirmed-loss |
+| Boundary | hostile-request, fully-refunded-stock, one-cent-remaining, maximum-safe-cents, address-before-shipment |
+
+All twelve populations run through the actual owned native SDK path with controlled responses. The largest supported cent value and one-cent remainder also pass actual Anthropic/Gemini SDK parsing without coercion. Controlled responses qualify source/protocol/accounting behavior, not live model arithmetic, obedience or semantic quality.
+
+Model-free setup:
+
+```sh
+uv run --locked compare-orders datasets
+uv run --locked compare-orders init --case busy-operations --directory /tmp/order-study
+uv run --locked compare-orders workspace /tmp/order-study
+uv run --locked compare-orders --cases /tmp/order-study/cases.json --expectations /tmp/order-study/expected.json --model openai:YOUR_ENABLED_MODEL
+```
+
+The last command is a key-free dry-run. Making native requests still needs deliberate live/run/request budgets and provider access. Initialization validates source-pinned index/population hashes and coherent customer/payment/shipping/stock relationships, then exclusively creates a0700 directory with0600 `cases.json`, external `expected.json`, `source-history.json`, `workspace.json` and `TASK.md`. The model reads current case facts, requests and policy; imported detailed history/task/fixture identity stay outside its tools. Source history describes the original seed snapshot, with explicit fictional provenance.
+
+Readback validates current cases/oracle and shows source hashes and seed match. Valid human edits are preserved and distinguishable from the seed; historical source is not rewritten to pretend it measured those edits. Malformed/missing input or changed dataset identity is refused without repair. Reset creates a fresh copy/new instance while preserving old source/work/evidence:
+
+```sh
+uv run --locked compare-orders reset /tmp/order-study --to /tmp/order-study-fresh --instance CURRENT_INSTANCE_UUID
+```
+
+Existing directories/files/symlinks are preserved. Caller-injected proposer evidence is explicitly labeled and cannot claim live/native evidence. The CLI uses Pydantic AI's documented public banner control so JSON output does not depend on the caller's banner environment flag; embedding APIs retain the caller's setting.
+
+## Distribution qualification
+
+```sh
+uv run --locked python scripts/build_datasets.py --check
+uv build
+PYDANTIC_AI_NO_BANNER=1 uv run --locked python scripts/check_distribution.py
+```
+
+Wheel data includes all thirteen population/index JSON files and the exact original five-case/expected files. The sdist includes all source/data/original fixtures/grader/tests/helpers/scripts/docs/CI/lockfiles. The deterministic complete source archive adds an exact per-file SHA256/size/mode manifest and is generated independently of Git/installed caches. Fresh locked wheel/sdist/complete-source environments outside checkout qualify console/module/default key-free planning, all twelve private populations/reset, original five native CLI cases over owned HTTP, exclusive private output and missing-key failed case receipts. Full97 suite runs from complete archived source and every original file hash remains unchanged. Repeated source bytes agree. CI uploads distributions and qualification.json; no public release/license is implied.
+
+Independent application implementation is complete; final exact Linux/artifact portability and catalog evidence are recorded in [COMPATIBILITY.md](COMPATIBILITY.md). Live provider availability/semantic billing review, qualified new Firedrill and publication/license remain parked. No actual order/payment mutation is implemented or authorized. Continue the portfolio with Wave3.

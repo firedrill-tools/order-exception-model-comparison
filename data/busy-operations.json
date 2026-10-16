@@ -1,0 +1,1241 @@
+{
+  "schema_version": 1,
+  "dataset": "order-comparison-studies",
+  "version": "1.0.0",
+  "case_id": "busy-operations",
+  "profile": "busy",
+  "description": "Twenty-four orders/twelve customers with coherent shipping/payment/stock source",
+  "population": {
+    "as_of": "2026-10-16T10:00:00Z",
+    "cases": [
+      {
+        "case_id": "C-1000",
+        "order_id": "ORD-71000",
+        "customer_request": "Synthetic customer Avery: the item arrived broken. Is a replacement available?",
+        "issue": "damaged",
+        "shipped": true,
+        "captured_cents": 10000,
+        "refunded_cents": 0,
+        "replacement_stock": 1
+      },
+      {
+        "case_id": "C-1001",
+        "order_id": "ORD-71001",
+        "customer_request": "Synthetic customer Jordan: a prior partial credit did not resolve the damage. There is no replacement available.",
+        "issue": "damaged",
+        "shipped": true,
+        "captured_cents": 10137,
+        "refunded_cents": 2534,
+        "replacement_stock": 0
+      },
+      {
+        "case_id": "C-1002",
+        "order_id": "ORD-71002",
+        "customer_request": "Synthetic customer Casey: please change the destination while tracking shows the parcel moving.",
+        "issue": "address_change",
+        "shipped": true,
+        "captured_cents": 10274,
+        "refunded_cents": 0,
+        "replacement_stock": 0
+      },
+      {
+        "case_id": "C-1003",
+        "order_id": "ORD-71003",
+        "customer_request": "Synthetic customer Morgan: the damaged order was already fully refunded. Please refund it again.",
+        "issue": "damaged",
+        "shipped": true,
+        "captured_cents": 10411,
+        "refunded_cents": 10411,
+        "replacement_stock": 0
+      },
+      {
+        "case_id": "C-1004",
+        "order_id": "ORD-71004",
+        "customer_request": "Synthetic customer Riley: the parcel is late, but tracking still shows it in transit without confirmed loss.",
+        "issue": "delivery_delay",
+        "shipped": true,
+        "captured_cents": 10548,
+        "refunded_cents": 0,
+        "replacement_stock": 0
+      },
+      {
+        "case_id": "C-1005",
+        "order_id": "ORD-71005",
+        "customer_request": "Synthetic customer Taylor: the item arrived broken. Is a replacement available?",
+        "issue": "damaged",
+        "shipped": true,
+        "captured_cents": 10685,
+        "refunded_cents": 0,
+        "replacement_stock": 2
+      },
+      {
+        "case_id": "C-1006",
+        "order_id": "ORD-71006",
+        "customer_request": "Synthetic customer Cameron: a prior partial credit did not resolve the damage. There is no replacement available.",
+        "issue": "damaged",
+        "shipped": true,
+        "captured_cents": 10822,
+        "refunded_cents": 2705,
+        "replacement_stock": 0
+      },
+      {
+        "case_id": "C-1007",
+        "order_id": "ORD-71007",
+        "customer_request": "Synthetic customer Drew: please change the destination while tracking shows the parcel moving.",
+        "issue": "address_change",
+        "shipped": true,
+        "captured_cents": 10959,
+        "refunded_cents": 0,
+        "replacement_stock": 0
+      },
+      {
+        "case_id": "C-1008",
+        "order_id": "ORD-71008",
+        "customer_request": "Synthetic customer Emery: the damaged order was already fully refunded. Please refund it again.",
+        "issue": "damaged",
+        "shipped": true,
+        "captured_cents": 11096,
+        "refunded_cents": 11096,
+        "replacement_stock": 0
+      },
+      {
+        "case_id": "C-1009",
+        "order_id": "ORD-71009",
+        "customer_request": "Synthetic customer Finley: the parcel is late, but tracking still shows it in transit without confirmed loss.",
+        "issue": "delivery_delay",
+        "shipped": true,
+        "captured_cents": 11233,
+        "refunded_cents": 0,
+        "replacement_stock": 1
+      },
+      {
+        "case_id": "C-1010",
+        "order_id": "ORD-71010",
+        "customer_request": "Synthetic customer Hayden: the item arrived broken. Is a replacement available?",
+        "issue": "damaged",
+        "shipped": true,
+        "captured_cents": 11370,
+        "refunded_cents": 0,
+        "replacement_stock": 3
+      },
+      {
+        "case_id": "C-1011",
+        "order_id": "ORD-71011",
+        "customer_request": "Synthetic customer Reese: a prior partial credit did not resolve the damage. There is no replacement available.",
+        "issue": "damaged",
+        "shipped": true,
+        "captured_cents": 11507,
+        "refunded_cents": 2876,
+        "replacement_stock": 0
+      },
+      {
+        "case_id": "C-1012",
+        "order_id": "ORD-71012",
+        "customer_request": "Synthetic customer Avery: please change the destination while tracking shows the parcel moving.",
+        "issue": "address_change",
+        "shipped": true,
+        "captured_cents": 11644,
+        "refunded_cents": 0,
+        "replacement_stock": 0
+      },
+      {
+        "case_id": "C-1013",
+        "order_id": "ORD-71013",
+        "customer_request": "Synthetic customer Jordan: the damaged order was already fully refunded. Please refund it again.",
+        "issue": "damaged",
+        "shipped": true,
+        "captured_cents": 11781,
+        "refunded_cents": 11781,
+        "replacement_stock": 0
+      },
+      {
+        "case_id": "C-1014",
+        "order_id": "ORD-71014",
+        "customer_request": "Synthetic customer Casey: the parcel is late, but tracking still shows it in transit without confirmed loss.",
+        "issue": "delivery_delay",
+        "shipped": true,
+        "captured_cents": 11918,
+        "refunded_cents": 0,
+        "replacement_stock": 0
+      },
+      {
+        "case_id": "C-1015",
+        "order_id": "ORD-71015",
+        "customer_request": "Synthetic customer Morgan: the item arrived broken. Is a replacement available?",
+        "issue": "damaged",
+        "shipped": true,
+        "captured_cents": 12055,
+        "refunded_cents": 0,
+        "replacement_stock": 4
+      },
+      {
+        "case_id": "C-1016",
+        "order_id": "ORD-71016",
+        "customer_request": "Synthetic customer Riley: a prior partial credit did not resolve the damage. There is no replacement available.",
+        "issue": "damaged",
+        "shipped": true,
+        "captured_cents": 12192,
+        "refunded_cents": 3048,
+        "replacement_stock": 0
+      },
+      {
+        "case_id": "C-1017",
+        "order_id": "ORD-71017",
+        "customer_request": "Synthetic customer Taylor: please change the destination while tracking shows the parcel moving.",
+        "issue": "address_change",
+        "shipped": true,
+        "captured_cents": 12329,
+        "refunded_cents": 0,
+        "replacement_stock": 0
+      },
+      {
+        "case_id": "C-1018",
+        "order_id": "ORD-71018",
+        "customer_request": "Synthetic customer Cameron: the damaged order was already fully refunded. Please refund it again.",
+        "issue": "damaged",
+        "shipped": true,
+        "captured_cents": 12466,
+        "refunded_cents": 12466,
+        "replacement_stock": 0
+      },
+      {
+        "case_id": "C-1019",
+        "order_id": "ORD-71019",
+        "customer_request": "Synthetic customer Drew: the parcel is late, but tracking still shows it in transit without confirmed loss.",
+        "issue": "delivery_delay",
+        "shipped": true,
+        "captured_cents": 12603,
+        "refunded_cents": 0,
+        "replacement_stock": 1
+      },
+      {
+        "case_id": "C-1020",
+        "order_id": "ORD-71020",
+        "customer_request": "Synthetic customer Emery: the item arrived broken. Is a replacement available?",
+        "issue": "damaged",
+        "shipped": true,
+        "captured_cents": 12740,
+        "refunded_cents": 0,
+        "replacement_stock": 1
+      },
+      {
+        "case_id": "C-1021",
+        "order_id": "ORD-71021",
+        "customer_request": "Synthetic customer Finley: a prior partial credit did not resolve the damage. There is no replacement available.",
+        "issue": "damaged",
+        "shipped": true,
+        "captured_cents": 12877,
+        "refunded_cents": 3219,
+        "replacement_stock": 0
+      },
+      {
+        "case_id": "C-1022",
+        "order_id": "ORD-71022",
+        "customer_request": "Synthetic customer Hayden: please change the destination while tracking shows the parcel moving.",
+        "issue": "address_change",
+        "shipped": true,
+        "captured_cents": 13014,
+        "refunded_cents": 0,
+        "replacement_stock": 0
+      },
+      {
+        "case_id": "C-1023",
+        "order_id": "ORD-71023",
+        "customer_request": "Synthetic customer Reese: the damaged order was already fully refunded. Please refund it again.",
+        "issue": "damaged",
+        "shipped": true,
+        "captured_cents": 13151,
+        "refunded_cents": 13151,
+        "replacement_stock": 0
+      }
+    ],
+    "expectations": {
+      "C-1000": {
+        "action": "replace",
+        "amount_cents": 0
+      },
+      "C-1001": {
+        "action": "refund",
+        "amount_cents": 7603
+      },
+      "C-1002": {
+        "action": "contact",
+        "amount_cents": 0
+      },
+      "C-1003": {
+        "action": "deny",
+        "amount_cents": 0
+      },
+      "C-1004": {
+        "action": "contact",
+        "amount_cents": 0
+      },
+      "C-1005": {
+        "action": "replace",
+        "amount_cents": 0
+      },
+      "C-1006": {
+        "action": "refund",
+        "amount_cents": 8117
+      },
+      "C-1007": {
+        "action": "contact",
+        "amount_cents": 0
+      },
+      "C-1008": {
+        "action": "deny",
+        "amount_cents": 0
+      },
+      "C-1009": {
+        "action": "contact",
+        "amount_cents": 0
+      },
+      "C-1010": {
+        "action": "replace",
+        "amount_cents": 0
+      },
+      "C-1011": {
+        "action": "refund",
+        "amount_cents": 8631
+      },
+      "C-1012": {
+        "action": "contact",
+        "amount_cents": 0
+      },
+      "C-1013": {
+        "action": "deny",
+        "amount_cents": 0
+      },
+      "C-1014": {
+        "action": "contact",
+        "amount_cents": 0
+      },
+      "C-1015": {
+        "action": "replace",
+        "amount_cents": 0
+      },
+      "C-1016": {
+        "action": "refund",
+        "amount_cents": 9144
+      },
+      "C-1017": {
+        "action": "contact",
+        "amount_cents": 0
+      },
+      "C-1018": {
+        "action": "deny",
+        "amount_cents": 0
+      },
+      "C-1019": {
+        "action": "contact",
+        "amount_cents": 0
+      },
+      "C-1020": {
+        "action": "replace",
+        "amount_cents": 0
+      },
+      "C-1021": {
+        "action": "refund",
+        "amount_cents": 9658
+      },
+      "C-1022": {
+        "action": "contact",
+        "amount_cents": 0
+      },
+      "C-1023": {
+        "action": "deny",
+        "amount_cents": 0
+      }
+    },
+    "customers": [
+      {
+        "customer_id": "CUS-001",
+        "name": "Avery (fictional)"
+      },
+      {
+        "customer_id": "CUS-002",
+        "name": "Jordan (fictional)"
+      },
+      {
+        "customer_id": "CUS-003",
+        "name": "Casey (fictional)"
+      },
+      {
+        "customer_id": "CUS-004",
+        "name": "Morgan (fictional)"
+      },
+      {
+        "customer_id": "CUS-005",
+        "name": "Riley (fictional)"
+      },
+      {
+        "customer_id": "CUS-006",
+        "name": "Taylor (fictional)"
+      },
+      {
+        "customer_id": "CUS-007",
+        "name": "Cameron (fictional)"
+      },
+      {
+        "customer_id": "CUS-008",
+        "name": "Drew (fictional)"
+      },
+      {
+        "customer_id": "CUS-009",
+        "name": "Emery (fictional)"
+      },
+      {
+        "customer_id": "CUS-010",
+        "name": "Finley (fictional)"
+      },
+      {
+        "customer_id": "CUS-011",
+        "name": "Hayden (fictional)"
+      },
+      {
+        "customer_id": "CUS-012",
+        "name": "Reese (fictional)"
+      }
+    ],
+    "source_history": [
+      {
+        "case_id": "C-1000",
+        "order_id": "ORD-71000",
+        "customer_id": "CUS-001",
+        "payments": [
+          {
+            "event_id": "ORD-71000-capture",
+            "kind": "capture",
+            "amount_cents": 10000,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": true,
+          "status": "delivered",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": "2026-10-15T07:00:00Z"
+        },
+        "stock_snapshot": {
+          "available": 1,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "Synthetic customer Avery: the item arrived broken. Is a replacement available?"
+        },
+        "provenance": "fictional_imported_business_facts"
+      },
+      {
+        "case_id": "C-1001",
+        "order_id": "ORD-71001",
+        "customer_id": "CUS-002",
+        "payments": [
+          {
+            "event_id": "ORD-71001-capture",
+            "kind": "capture",
+            "amount_cents": 10137,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          },
+          {
+            "event_id": "ORD-71001-refund-1",
+            "kind": "refund",
+            "amount_cents": 1267,
+            "occurred_at": "2026-10-15T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          },
+          {
+            "event_id": "ORD-71001-refund-2",
+            "kind": "refund",
+            "amount_cents": 1267,
+            "occurred_at": "2026-10-15T08:01:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": true,
+          "status": "delivered",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": "2026-10-15T07:00:00Z"
+        },
+        "stock_snapshot": {
+          "available": 0,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "Synthetic customer Jordan: a prior partial credit did not resolve the damage. There is no replacement available."
+        },
+        "provenance": "fictional_imported_business_facts"
+      },
+      {
+        "case_id": "C-1002",
+        "order_id": "ORD-71002",
+        "customer_id": "CUS-003",
+        "payments": [
+          {
+            "event_id": "ORD-71002-capture",
+            "kind": "capture",
+            "amount_cents": 10274,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": true,
+          "status": "in_transit",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": null
+        },
+        "stock_snapshot": {
+          "available": 0,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "Synthetic customer Casey: please change the destination while tracking shows the parcel moving."
+        },
+        "provenance": "fictional_imported_business_facts"
+      },
+      {
+        "case_id": "C-1003",
+        "order_id": "ORD-71003",
+        "customer_id": "CUS-004",
+        "payments": [
+          {
+            "event_id": "ORD-71003-capture",
+            "kind": "capture",
+            "amount_cents": 10411,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          },
+          {
+            "event_id": "ORD-71003-refund-1",
+            "kind": "refund",
+            "amount_cents": 5205,
+            "occurred_at": "2026-10-15T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          },
+          {
+            "event_id": "ORD-71003-refund-2",
+            "kind": "refund",
+            "amount_cents": 5206,
+            "occurred_at": "2026-10-15T08:01:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": true,
+          "status": "delivered",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": "2026-10-15T07:00:00Z"
+        },
+        "stock_snapshot": {
+          "available": 0,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "Synthetic customer Morgan: the damaged order was already fully refunded. Please refund it again."
+        },
+        "provenance": "fictional_imported_business_facts"
+      },
+      {
+        "case_id": "C-1004",
+        "order_id": "ORD-71004",
+        "customer_id": "CUS-005",
+        "payments": [
+          {
+            "event_id": "ORD-71004-capture",
+            "kind": "capture",
+            "amount_cents": 10548,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": true,
+          "status": "in_transit",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": null
+        },
+        "stock_snapshot": {
+          "available": 0,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "Synthetic customer Riley: the parcel is late, but tracking still shows it in transit without confirmed loss."
+        },
+        "provenance": "fictional_imported_business_facts"
+      },
+      {
+        "case_id": "C-1005",
+        "order_id": "ORD-71005",
+        "customer_id": "CUS-006",
+        "payments": [
+          {
+            "event_id": "ORD-71005-capture",
+            "kind": "capture",
+            "amount_cents": 10685,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": true,
+          "status": "delivered",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": "2026-10-15T07:00:00Z"
+        },
+        "stock_snapshot": {
+          "available": 2,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "Synthetic customer Taylor: the item arrived broken. Is a replacement available?"
+        },
+        "provenance": "fictional_imported_business_facts"
+      },
+      {
+        "case_id": "C-1006",
+        "order_id": "ORD-71006",
+        "customer_id": "CUS-007",
+        "payments": [
+          {
+            "event_id": "ORD-71006-capture",
+            "kind": "capture",
+            "amount_cents": 10822,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          },
+          {
+            "event_id": "ORD-71006-refund-1",
+            "kind": "refund",
+            "amount_cents": 1352,
+            "occurred_at": "2026-10-15T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          },
+          {
+            "event_id": "ORD-71006-refund-2",
+            "kind": "refund",
+            "amount_cents": 1353,
+            "occurred_at": "2026-10-15T08:01:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": true,
+          "status": "delivered",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": "2026-10-15T07:00:00Z"
+        },
+        "stock_snapshot": {
+          "available": 0,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "Synthetic customer Cameron: a prior partial credit did not resolve the damage. There is no replacement available."
+        },
+        "provenance": "fictional_imported_business_facts"
+      },
+      {
+        "case_id": "C-1007",
+        "order_id": "ORD-71007",
+        "customer_id": "CUS-008",
+        "payments": [
+          {
+            "event_id": "ORD-71007-capture",
+            "kind": "capture",
+            "amount_cents": 10959,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": true,
+          "status": "in_transit",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": null
+        },
+        "stock_snapshot": {
+          "available": 0,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "Synthetic customer Drew: please change the destination while tracking shows the parcel moving."
+        },
+        "provenance": "fictional_imported_business_facts"
+      },
+      {
+        "case_id": "C-1008",
+        "order_id": "ORD-71008",
+        "customer_id": "CUS-009",
+        "payments": [
+          {
+            "event_id": "ORD-71008-capture",
+            "kind": "capture",
+            "amount_cents": 11096,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          },
+          {
+            "event_id": "ORD-71008-refund-1",
+            "kind": "refund",
+            "amount_cents": 5548,
+            "occurred_at": "2026-10-15T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          },
+          {
+            "event_id": "ORD-71008-refund-2",
+            "kind": "refund",
+            "amount_cents": 5548,
+            "occurred_at": "2026-10-15T08:01:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": true,
+          "status": "delivered",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": "2026-10-15T07:00:00Z"
+        },
+        "stock_snapshot": {
+          "available": 0,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "Synthetic customer Emery: the damaged order was already fully refunded. Please refund it again."
+        },
+        "provenance": "fictional_imported_business_facts"
+      },
+      {
+        "case_id": "C-1009",
+        "order_id": "ORD-71009",
+        "customer_id": "CUS-010",
+        "payments": [
+          {
+            "event_id": "ORD-71009-capture",
+            "kind": "capture",
+            "amount_cents": 11233,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": true,
+          "status": "in_transit",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": null
+        },
+        "stock_snapshot": {
+          "available": 1,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "Synthetic customer Finley: the parcel is late, but tracking still shows it in transit without confirmed loss."
+        },
+        "provenance": "fictional_imported_business_facts"
+      },
+      {
+        "case_id": "C-1010",
+        "order_id": "ORD-71010",
+        "customer_id": "CUS-011",
+        "payments": [
+          {
+            "event_id": "ORD-71010-capture",
+            "kind": "capture",
+            "amount_cents": 11370,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": true,
+          "status": "delivered",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": "2026-10-15T07:00:00Z"
+        },
+        "stock_snapshot": {
+          "available": 3,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "Synthetic customer Hayden: the item arrived broken. Is a replacement available?"
+        },
+        "provenance": "fictional_imported_business_facts"
+      },
+      {
+        "case_id": "C-1011",
+        "order_id": "ORD-71011",
+        "customer_id": "CUS-012",
+        "payments": [
+          {
+            "event_id": "ORD-71011-capture",
+            "kind": "capture",
+            "amount_cents": 11507,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          },
+          {
+            "event_id": "ORD-71011-refund-1",
+            "kind": "refund",
+            "amount_cents": 1438,
+            "occurred_at": "2026-10-15T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          },
+          {
+            "event_id": "ORD-71011-refund-2",
+            "kind": "refund",
+            "amount_cents": 1438,
+            "occurred_at": "2026-10-15T08:01:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": true,
+          "status": "delivered",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": "2026-10-15T07:00:00Z"
+        },
+        "stock_snapshot": {
+          "available": 0,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "Synthetic customer Reese: a prior partial credit did not resolve the damage. There is no replacement available."
+        },
+        "provenance": "fictional_imported_business_facts"
+      },
+      {
+        "case_id": "C-1012",
+        "order_id": "ORD-71012",
+        "customer_id": "CUS-001",
+        "payments": [
+          {
+            "event_id": "ORD-71012-capture",
+            "kind": "capture",
+            "amount_cents": 11644,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": true,
+          "status": "in_transit",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": null
+        },
+        "stock_snapshot": {
+          "available": 0,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "Synthetic customer Avery: please change the destination while tracking shows the parcel moving."
+        },
+        "provenance": "fictional_imported_business_facts"
+      },
+      {
+        "case_id": "C-1013",
+        "order_id": "ORD-71013",
+        "customer_id": "CUS-002",
+        "payments": [
+          {
+            "event_id": "ORD-71013-capture",
+            "kind": "capture",
+            "amount_cents": 11781,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          },
+          {
+            "event_id": "ORD-71013-refund-1",
+            "kind": "refund",
+            "amount_cents": 5890,
+            "occurred_at": "2026-10-15T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          },
+          {
+            "event_id": "ORD-71013-refund-2",
+            "kind": "refund",
+            "amount_cents": 5891,
+            "occurred_at": "2026-10-15T08:01:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": true,
+          "status": "delivered",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": "2026-10-15T07:00:00Z"
+        },
+        "stock_snapshot": {
+          "available": 0,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "Synthetic customer Jordan: the damaged order was already fully refunded. Please refund it again."
+        },
+        "provenance": "fictional_imported_business_facts"
+      },
+      {
+        "case_id": "C-1014",
+        "order_id": "ORD-71014",
+        "customer_id": "CUS-003",
+        "payments": [
+          {
+            "event_id": "ORD-71014-capture",
+            "kind": "capture",
+            "amount_cents": 11918,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": true,
+          "status": "in_transit",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": null
+        },
+        "stock_snapshot": {
+          "available": 0,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "Synthetic customer Casey: the parcel is late, but tracking still shows it in transit without confirmed loss."
+        },
+        "provenance": "fictional_imported_business_facts"
+      },
+      {
+        "case_id": "C-1015",
+        "order_id": "ORD-71015",
+        "customer_id": "CUS-004",
+        "payments": [
+          {
+            "event_id": "ORD-71015-capture",
+            "kind": "capture",
+            "amount_cents": 12055,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": true,
+          "status": "delivered",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": "2026-10-15T07:00:00Z"
+        },
+        "stock_snapshot": {
+          "available": 4,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "Synthetic customer Morgan: the item arrived broken. Is a replacement available?"
+        },
+        "provenance": "fictional_imported_business_facts"
+      },
+      {
+        "case_id": "C-1016",
+        "order_id": "ORD-71016",
+        "customer_id": "CUS-005",
+        "payments": [
+          {
+            "event_id": "ORD-71016-capture",
+            "kind": "capture",
+            "amount_cents": 12192,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          },
+          {
+            "event_id": "ORD-71016-refund-1",
+            "kind": "refund",
+            "amount_cents": 1524,
+            "occurred_at": "2026-10-15T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          },
+          {
+            "event_id": "ORD-71016-refund-2",
+            "kind": "refund",
+            "amount_cents": 1524,
+            "occurred_at": "2026-10-15T08:01:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": true,
+          "status": "delivered",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": "2026-10-15T07:00:00Z"
+        },
+        "stock_snapshot": {
+          "available": 0,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "Synthetic customer Riley: a prior partial credit did not resolve the damage. There is no replacement available."
+        },
+        "provenance": "fictional_imported_business_facts"
+      },
+      {
+        "case_id": "C-1017",
+        "order_id": "ORD-71017",
+        "customer_id": "CUS-006",
+        "payments": [
+          {
+            "event_id": "ORD-71017-capture",
+            "kind": "capture",
+            "amount_cents": 12329,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": true,
+          "status": "in_transit",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": null
+        },
+        "stock_snapshot": {
+          "available": 0,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "Synthetic customer Taylor: please change the destination while tracking shows the parcel moving."
+        },
+        "provenance": "fictional_imported_business_facts"
+      },
+      {
+        "case_id": "C-1018",
+        "order_id": "ORD-71018",
+        "customer_id": "CUS-007",
+        "payments": [
+          {
+            "event_id": "ORD-71018-capture",
+            "kind": "capture",
+            "amount_cents": 12466,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          },
+          {
+            "event_id": "ORD-71018-refund-1",
+            "kind": "refund",
+            "amount_cents": 6233,
+            "occurred_at": "2026-10-15T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          },
+          {
+            "event_id": "ORD-71018-refund-2",
+            "kind": "refund",
+            "amount_cents": 6233,
+            "occurred_at": "2026-10-15T08:01:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": true,
+          "status": "delivered",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": "2026-10-15T07:00:00Z"
+        },
+        "stock_snapshot": {
+          "available": 0,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "Synthetic customer Cameron: the damaged order was already fully refunded. Please refund it again."
+        },
+        "provenance": "fictional_imported_business_facts"
+      },
+      {
+        "case_id": "C-1019",
+        "order_id": "ORD-71019",
+        "customer_id": "CUS-008",
+        "payments": [
+          {
+            "event_id": "ORD-71019-capture",
+            "kind": "capture",
+            "amount_cents": 12603,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": true,
+          "status": "in_transit",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": null
+        },
+        "stock_snapshot": {
+          "available": 1,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "Synthetic customer Drew: the parcel is late, but tracking still shows it in transit without confirmed loss."
+        },
+        "provenance": "fictional_imported_business_facts"
+      },
+      {
+        "case_id": "C-1020",
+        "order_id": "ORD-71020",
+        "customer_id": "CUS-009",
+        "payments": [
+          {
+            "event_id": "ORD-71020-capture",
+            "kind": "capture",
+            "amount_cents": 12740,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": true,
+          "status": "delivered",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": "2026-10-15T07:00:00Z"
+        },
+        "stock_snapshot": {
+          "available": 1,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "Synthetic customer Emery: the item arrived broken. Is a replacement available?"
+        },
+        "provenance": "fictional_imported_business_facts"
+      },
+      {
+        "case_id": "C-1021",
+        "order_id": "ORD-71021",
+        "customer_id": "CUS-010",
+        "payments": [
+          {
+            "event_id": "ORD-71021-capture",
+            "kind": "capture",
+            "amount_cents": 12877,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          },
+          {
+            "event_id": "ORD-71021-refund-1",
+            "kind": "refund",
+            "amount_cents": 1609,
+            "occurred_at": "2026-10-15T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          },
+          {
+            "event_id": "ORD-71021-refund-2",
+            "kind": "refund",
+            "amount_cents": 1610,
+            "occurred_at": "2026-10-15T08:01:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": true,
+          "status": "delivered",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": "2026-10-15T07:00:00Z"
+        },
+        "stock_snapshot": {
+          "available": 0,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "Synthetic customer Finley: a prior partial credit did not resolve the damage. There is no replacement available."
+        },
+        "provenance": "fictional_imported_business_facts"
+      },
+      {
+        "case_id": "C-1022",
+        "order_id": "ORD-71022",
+        "customer_id": "CUS-011",
+        "payments": [
+          {
+            "event_id": "ORD-71022-capture",
+            "kind": "capture",
+            "amount_cents": 13014,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": true,
+          "status": "in_transit",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": null
+        },
+        "stock_snapshot": {
+          "available": 0,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "Synthetic customer Hayden: please change the destination while tracking shows the parcel moving."
+        },
+        "provenance": "fictional_imported_business_facts"
+      },
+      {
+        "case_id": "C-1023",
+        "order_id": "ORD-71023",
+        "customer_id": "CUS-012",
+        "payments": [
+          {
+            "event_id": "ORD-71023-capture",
+            "kind": "capture",
+            "amount_cents": 13151,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          },
+          {
+            "event_id": "ORD-71023-refund-1",
+            "kind": "refund",
+            "amount_cents": 6575,
+            "occurred_at": "2026-10-15T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          },
+          {
+            "event_id": "ORD-71023-refund-2",
+            "kind": "refund",
+            "amount_cents": 6576,
+            "occurred_at": "2026-10-15T08:01:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": true,
+          "status": "delivered",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": "2026-10-15T07:00:00Z"
+        },
+        "stock_snapshot": {
+          "available": 0,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "Synthetic customer Reese: the damaged order was already fully refunded. Please refund it again."
+        },
+        "provenance": "fictional_imported_business_facts"
+      }
+    ]
+  },
+  "task": "Compare every selected model against the same busy population, preserving original source and external oracle.",
+  "provenance": "All customers, orders, shipping and payment histories are fictional imported source facts. No original model, token, authentication, actual payment or paid-provider observations are asserted."
+}

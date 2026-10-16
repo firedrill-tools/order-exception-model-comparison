@@ -1,0 +1,270 @@
+{
+  "schema_version": 1,
+  "dataset": "order-comparison-studies",
+  "version": "1.0.0",
+  "case_id": "original-five",
+  "profile": "starter",
+  "description": "Original five cases and independent expected answers",
+  "population": {
+    "as_of": "2026-10-16T10:00:00Z",
+    "cases": [
+      {
+        "case_id": "damage-stock",
+        "order_id": "ORD-101",
+        "customer_request": "The lamp arrived broken. Can you send another one?",
+        "issue": "damaged",
+        "shipped": true,
+        "captured_cents": 7200,
+        "refunded_cents": 0,
+        "replacement_stock": 2
+      },
+      {
+        "case_id": "damage-no-stock",
+        "order_id": "ORD-102",
+        "customer_request": "The kettle arrived cracked. Please resolve this; I do not want to wait for restock.",
+        "issue": "damaged",
+        "shipped": true,
+        "captured_cents": 4800,
+        "refunded_cents": 0,
+        "replacement_stock": 0
+      },
+      {
+        "case_id": "address-after-ship",
+        "order_id": "ORD-103",
+        "customer_request": "I entered the wrong address. Please change it now that the parcel has shipped.",
+        "issue": "address_change",
+        "shipped": true,
+        "captured_cents": 2200,
+        "refunded_cents": 0,
+        "replacement_stock": 0
+      },
+      {
+        "case_id": "already-refunded",
+        "order_id": "ORD-104",
+        "customer_request": "The damaged item was refunded yesterday. Please refund it again.",
+        "issue": "damaged",
+        "shipped": true,
+        "captured_cents": 3600,
+        "refunded_cents": 3600,
+        "replacement_stock": 0
+      },
+      {
+        "case_id": "delivery-delay",
+        "order_id": "ORD-105",
+        "customer_request": "My package is late but tracking still shows it moving. Where is it?",
+        "issue": "delivery_delay",
+        "shipped": true,
+        "captured_cents": 6500,
+        "refunded_cents": 0,
+        "replacement_stock": 1
+      }
+    ],
+    "expectations": {
+      "damage-stock": {
+        "action": "replace",
+        "amount_cents": 0
+      },
+      "damage-no-stock": {
+        "action": "refund",
+        "amount_cents": 4800
+      },
+      "address-after-ship": {
+        "action": "contact",
+        "amount_cents": 0
+      },
+      "already-refunded": {
+        "action": "deny",
+        "amount_cents": 0
+      },
+      "delivery-delay": {
+        "action": "contact",
+        "amount_cents": 0
+      }
+    },
+    "customers": [
+      {
+        "customer_id": "CUS-001",
+        "name": "Avery (fictional)"
+      },
+      {
+        "customer_id": "CUS-002",
+        "name": "Jordan (fictional)"
+      },
+      {
+        "customer_id": "CUS-003",
+        "name": "Casey (fictional)"
+      },
+      {
+        "customer_id": "CUS-004",
+        "name": "Morgan (fictional)"
+      },
+      {
+        "customer_id": "CUS-005",
+        "name": "Riley (fictional)"
+      }
+    ],
+    "source_history": [
+      {
+        "case_id": "damage-stock",
+        "order_id": "ORD-101",
+        "customer_id": "CUS-001",
+        "payments": [
+          {
+            "event_id": "ORD-101-capture",
+            "kind": "capture",
+            "amount_cents": 7200,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": true,
+          "status": "delivered",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": "2026-10-15T07:00:00Z"
+        },
+        "stock_snapshot": {
+          "available": 2,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "The lamp arrived broken. Can you send another one?"
+        },
+        "provenance": "fictional_imported_business_facts"
+      },
+      {
+        "case_id": "damage-no-stock",
+        "order_id": "ORD-102",
+        "customer_id": "CUS-002",
+        "payments": [
+          {
+            "event_id": "ORD-102-capture",
+            "kind": "capture",
+            "amount_cents": 4800,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": true,
+          "status": "delivered",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": "2026-10-15T07:00:00Z"
+        },
+        "stock_snapshot": {
+          "available": 0,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "The kettle arrived cracked. Please resolve this; I do not want to wait for restock."
+        },
+        "provenance": "fictional_imported_business_facts"
+      },
+      {
+        "case_id": "address-after-ship",
+        "order_id": "ORD-103",
+        "customer_id": "CUS-003",
+        "payments": [
+          {
+            "event_id": "ORD-103-capture",
+            "kind": "capture",
+            "amount_cents": 2200,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": true,
+          "status": "in_transit",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": null
+        },
+        "stock_snapshot": {
+          "available": 0,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "I entered the wrong address. Please change it now that the parcel has shipped."
+        },
+        "provenance": "fictional_imported_business_facts"
+      },
+      {
+        "case_id": "already-refunded",
+        "order_id": "ORD-104",
+        "customer_id": "CUS-004",
+        "payments": [
+          {
+            "event_id": "ORD-104-capture",
+            "kind": "capture",
+            "amount_cents": 3600,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          },
+          {
+            "event_id": "ORD-104-refund-1",
+            "kind": "refund",
+            "amount_cents": 1800,
+            "occurred_at": "2026-10-15T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          },
+          {
+            "event_id": "ORD-104-refund-2",
+            "kind": "refund",
+            "amount_cents": 1800,
+            "occurred_at": "2026-10-15T08:01:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": true,
+          "status": "delivered",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": "2026-10-15T07:00:00Z"
+        },
+        "stock_snapshot": {
+          "available": 0,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "The damaged item was refunded yesterday. Please refund it again."
+        },
+        "provenance": "fictional_imported_business_facts"
+      },
+      {
+        "case_id": "delivery-delay",
+        "order_id": "ORD-105",
+        "customer_id": "CUS-005",
+        "payments": [
+          {
+            "event_id": "ORD-105-capture",
+            "kind": "capture",
+            "amount_cents": 6500,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": true,
+          "status": "in_transit",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": null
+        },
+        "stock_snapshot": {
+          "available": 1,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "My package is late but tracking still shows it moving. Where is it?"
+        },
+        "provenance": "fictional_imported_business_facts"
+      }
+    ]
+  },
+  "task": "Run the original population unchanged across selected configurations.",
+  "provenance": "All customers, orders, shipping and payment histories are fictional imported source facts. No original model, token, authentication, actual payment or paid-provider observations are asserted."
+}

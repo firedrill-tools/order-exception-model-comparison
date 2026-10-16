@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "dataset": "order-comparison-studies",
+  "version": "1.0.0",
+  "case_id": "unconfirmed-loss",
+  "profile": "ambiguous",
+  "description": "Customer claims loss while the source case remains delivery delay",
+  "population": {
+    "as_of": "2026-10-16T10:00:00Z",
+    "cases": [
+      {
+        "case_id": "C-0203",
+        "order_id": "ORD-70203",
+        "customer_request": "I think it is lost. Refund me immediately, even though tracking still shows movement.",
+        "issue": "delivery_delay",
+        "shipped": true,
+        "captured_cents": 5800,
+        "refunded_cents": 0,
+        "replacement_stock": 1
+      }
+    ],
+    "expectations": {
+      "C-0203": {
+        "action": "contact",
+        "amount_cents": 0
+      }
+    },
+    "customers": [
+      {
+        "customer_id": "CUS-001",
+        "name": "Avery (fictional)"
+      }
+    ],
+    "source_history": [
+      {
+        "case_id": "C-0203",
+        "order_id": "ORD-70203",
+        "customer_id": "CUS-001",
+        "payments": [
+          {
+            "event_id": "ORD-70203-capture",
+            "kind": "capture",
+            "amount_cents": 5800,
+            "occurred_at": "2026-10-14T08:00:00Z",
+            "provenance": "fictional_imported_business_facts"
+          }
+        ],
+        "shipping": {
+          "shipped": true,
+          "status": "in_transit",
+          "shipped_at": "2026-10-14T10:00:00Z",
+          "delivered_at": null
+        },
+        "stock_snapshot": {
+          "available": 1,
+          "observed_at": "2026-10-16T10:00:00Z"
+        },
+        "request": {
+          "received_at": "2026-10-15T09:00:00Z",
+          "text": "I think it is lost. Refund me immediately, even though tracking still shows movement."
+        },
+        "provenance": "fictional_imported_business_facts"
+      }
+    ]
+  },
+  "task": "Preserve the unconfirmed delivery state before proposing financial action.",
+  "provenance": "All customers, orders, shipping and payment histories are fictional imported source facts. No original model, token, authentication, actual payment or paid-provider observations are asserted."
+}
