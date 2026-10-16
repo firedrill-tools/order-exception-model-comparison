@@ -6,7 +6,7 @@ import json
 import os
 from dataclasses import dataclass, field
 
-from pydantic_ai import Agent, RunContext
+from pydantic_ai import Agent, RunContext, ToolOutput
 from pydantic_ai.models import Model
 
 from .schema import OrderCase, Proposal
@@ -26,13 +26,41 @@ class CaseContext:
     case: OrderCase
     tool_calls: list[str] = field(default_factory=list)
     tool_attempts: list[dict] = field(default_factory=list)
+    receipt: object = field(default=None, repr=False)
+    policy: str = field(default=POLICY, repr=False)
+
+    def record(self, name, arguments, result, successful):
+        from .evidence import sha
+
+        if self.receipt:
+            self.receipt.guard()
+        self.tool_attempts.append(
+            {
+                "name": name,
+                "arguments": arguments,
+                "successful": successful,
+                "source_case_sha256": sha(self.case.model_dump(mode="json")),
+                "source_policy_sha256": sha(self.policy.encode()),
+                "result": result,
+                "result_sha256": sha(result.encode()),
+            }
+        )
+        if self.receipt:
+            self.receipt.data["tool_attempts"] = self.tool_attempts
+            self.receipt.save()
+            self.receipt.guard()
+        if successful:
+            self.tool_calls.append(name)
+        return result
 
 
 def build_agent(model: str | Model) -> Agent:
     agent = Agent(
         model,
         deps_type=CaseContext,
-        output_type=Proposal,
+        output_type=ToolOutput(Proposal, name="submit_proposal"),
+        retries=0,
+        model_settings={"max_tokens": 1024, "timeout": 30},
         instructions=(
             "Resolve one synthetic order exception using the tools. Read the exact "
             "order, customer request and policy before deciding. State an action, "
@@ -41,34 +69,28 @@ def build_agent(model: str | Model) -> Agent:
         ),
     )
 
+    agent.instrument = False
+
     @agent.tool
-    def read_order(ctx: RunContext[CaseContext], order_id: str) -> str:
+    async def read_order(ctx: RunContext[CaseContext], order_id: str) -> str:
         """Read exact order, payment and replacement stock facts."""
-        ctx.deps.tool_attempts.append(
-            {
-                "name": "read_order",
-                "order_id": order_id,
-                "successful": order_id == ctx.deps.case.order_id,
-            }
+        matched = order_id == ctx.deps.case.order_id
+        result = (
+            ctx.deps.case.model_dump_json(exclude={"customer_request", "case_id"})
+            if matched
+            else json.dumps({"error": "order not found"})
         )
-        if order_id != ctx.deps.case.order_id:
-            return json.dumps({"error": "order not found"})
-        ctx.deps.tool_calls.append("read_order")
-        return ctx.deps.case.model_dump_json(exclude={"customer_request", "case_id"})
+        return ctx.deps.record("read_order", {"order_id": order_id}, result, matched)
 
     @agent.tool
-    def read_request(ctx: RunContext[CaseContext]) -> str:
+    async def read_request(ctx: RunContext[CaseContext]) -> str:
         """Read the customer request for this exception case."""
-        ctx.deps.tool_attempts.append({"name": "read_request", "successful": True})
-        ctx.deps.tool_calls.append("read_request")
-        return ctx.deps.case.customer_request
+        return ctx.deps.record("read_request", {}, ctx.deps.case.customer_request, True)
 
     @agent.tool
-    def read_policy(ctx: RunContext[CaseContext]) -> str:
-        """Read the synthetic resolution policy."""
-        ctx.deps.tool_attempts.append({"name": "read_policy", "successful": True})
-        ctx.deps.tool_calls.append("read_policy")
-        return POLICY
+    async def read_policy(ctx: RunContext[CaseContext]) -> str:
+        """Read the identical synthetic resolution policy."""
+        return ctx.deps.record("read_policy", {}, ctx.deps.policy, True)
 
     return agent
 
@@ -86,10 +108,19 @@ def _check_key(model: str) -> None:
         raise RuntimeError(f"{required[prefix]} is required for {prefix} runs")
 
 
-def propose(case: OrderCase, model: str | Model) -> tuple[Proposal, dict, list[str]]:
+def propose(
+    case: OrderCase, model: str | Model, **options
+) -> tuple[Proposal, dict, list[str]]:
     case = OrderCase.model_validate(case).model_copy(deep=True)
     if isinstance(model, str):
-        _check_key(model)
+        import asyncio
+        from .worker import propose_async
+
+        try:
+            asyncio.get_running_loop()
+        except RuntimeError:
+            return asyncio.run(propose_async(case, model, **options))
+        raise RuntimeError("use propose_async from an active event loop")
     context = CaseContext(case)
     result = build_agent(model).run_sync(
         f"Resolve order {case.order_id}. Call read_order, "

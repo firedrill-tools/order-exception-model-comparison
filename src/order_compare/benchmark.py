@@ -4,12 +4,12 @@ from __future__ import annotations
 
 from collections import defaultdict
 from copy import deepcopy
-import hashlib
 import json
 from datetime import datetime, timezone
 from time import perf_counter
 
 from .agent import propose
+from .evidence import sha
 from .schema import OrderCase, Proposal, Expectation
 
 
@@ -86,6 +86,7 @@ def run_suite(
         key: Expectation.model_validate(value).model_dump()
         for key, value in expectations.items()
     }
+    suite_started_at = datetime.now(timezone.utc).isoformat()
     results = []
     for model in models:
         for case in cases:
@@ -116,12 +117,12 @@ def run_suite(
                     "grade": None,
                 }
             result["usage_source"] = (
-                "framework_reported" if proposer is propose else "caller_reported"
+                "original_provider_fields_and_prepared_attempts"
+                if proposer is propose
+                else "caller_reported"
             )
             result["cost_usd"] = None
-            result["case_sha256"] = hashlib.sha256(
-                case.model_dump_json().encode()
-            ).hexdigest()
+            result["case_sha256"] = sha(case.model_dump(mode="json"))
             result["elapsed_ms"] = round((perf_counter() - started) * 1000, 2)
             results.append(result)
     summaries = {}
@@ -139,6 +140,14 @@ def run_suite(
             "usage": {},
             "usage_coverage": {},
             "cost_usd": None,
+            "usage_semantics": list(
+                dict.fromkeys(
+                    row["usage"]["usage_semantics"]
+                    for row in rows
+                    if isinstance(row.get("usage"), dict)
+                    and "usage_semantics" in row["usage"]
+                )
+            ),
         }
         for field in ("requests", "input_tokens", "output_tokens", "total_tokens"):
             observed = [
@@ -176,7 +185,8 @@ def run_suite(
     }
     return {
         "execution": execution,
-        "started_at": datetime.now(timezone.utc).isoformat(),
+        "started_at": suite_started_at,
+        "finished_at": datetime.now(timezone.utc).isoformat(),
         "models": models,
         "case_count": len(cases),
         "results": results,

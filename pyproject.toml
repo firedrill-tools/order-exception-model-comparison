@@ -7,7 +7,7 @@ name = "order-exception-model-comparison"
 version = "0.1.0"
 description = "Pydantic AI order exception agent and measured cross-provider comparison"
 requires-python = ">=3.12"
-dependencies = ["pydantic-ai-slim[openai,anthropic,google]==2.56.0"]
+dependencies = ["pydantic-ai-slim[openai,anthropic,google]==2.56.0", "openai==3.31.0", "anthropic==1.14.0", "google-genai==2.31.0", "httpx==0.28.1", "httpx2==2.13.1"]
 
 [project.optional-dependencies]
 test = ["pytest>=8,<10"]
