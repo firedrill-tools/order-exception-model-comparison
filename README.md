@@ -25,3 +25,12 @@ The harness runs sequentially and records per-case failures rather than substitu
 Local tests exercise the grade logic and Pydantic AI path without provider keys. They do not provide a live comparison or measured provider usage. A real comparison needs keys, model availability and a deliberate call budget. Firedrill integration awaits the qualified new release. Dependencies are pinned in `uv.lock`.
 
 Explore related applications in the [Firedrill example catalog](https://github.com/firedrill-tools/firedrill-example-catalog). Product and setup references: [Firedrill](https://firedrill.run/) and the [official developer documentation](https://docs.firedrill.run/). Use documentation matching the qualified release; this repository records its current integration limits above.
+
+
+## Development checkpoint
+
+17 local checks now qualify strict bounded immutable case/proposal/expectation contracts, coherent captured/refunded amounts, successful read credit, independent per-model case snapshots, immutable external oracle input, unique configuration labels and partial/unknown usage aggregation. A nonexistent order read does not satisfy read_order. Actual controlled FunctionModel reads qualify the positive three-tool path; external case labels and expectations are excluded from order-tool output. These remain scripted framework checks, not paid model measurements.
+
+Failed caller/framework usage is retained when available; absent fields remain null and coverage records the known subtotal/observed rows. Overflowed totals remain unknown. Costs are unknown. This initial accounting checkpoint does not yet establish original provider HTTP measurements; normalized framework/caller provenance stays explicit. A comparison's first proposer cannot alter the next model's input or grading source. Original five business cases and external expectations are unchanged.
+
+Native work remains active: an actual pinned OpenAI/Pydantic AI loopbackHTTP probe still returned a valid final structured proposal with finish_reason length and graded success. Owned native completion/measurement/lifecycle/private failure evidence, normal CLI budgets/signals, richer cases/private workspaces and fresh locked distributions remain in [PLAN.md](PLAN.md). No paid provider or real order/payment action was used. Live semantic/billing/Firedrill/publication gates remain parked.

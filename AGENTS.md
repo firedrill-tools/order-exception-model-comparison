@@ -1,3 +1,6 @@
 # Working rules
 
 Keep one immutable case set and an external expectation file. Never pass expected answers into the model prompt. Preserve identical policy, tools and case order across providers. Record failed calls and real usage rather than treating errors as zero-cost successes. The agent proposes only; no real order/payment mutation is allowed. Offline scripted runs are not live model comparisons. Add Firedrill only after the new release interface is qualified.
+
+
+Integrity17 checkpoint: source/proposal/oracle models are strict/bounded/revalidated/frozen, and every proposer receives an independent deep source snapshot. Grade against the original snapshot and copied external oracle. Credit read_order only after a matching successful lookup; retain failed attempts separately. No external case label/answer belongs in tool results or model prompts. Failed partial usage must survive; missing/overflowed totals stay null with explicit coverage/known subtotals and unknown cost. Caller/framework counters are not original provider HTTP evidence. Native terminal defect remains active after a controlled length-finished final tool proposal graded success. Continue owned native/raw/partial lifecycle/CLI and source/data/distribution work; do not claim this checkpoint is project completion.
