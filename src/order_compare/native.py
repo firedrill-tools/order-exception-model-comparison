@@ -18,6 +18,7 @@ from pydantic_ai.providers.openai import OpenAIProvider
 from pydantic_ai.providers.anthropic import AnthropicProvider
 from pydantic_ai.providers.google import GoogleProvider
 from .schema import Proposal
+from .evidence import now
 
 DEFAULT_URLS = {
     "openai": "https://api.openai.com/v1",
@@ -121,7 +122,7 @@ class ModelConfig:
         }
 
 
-def configuration(identifier, *, api_key=None, base_url=None):
+def configuration(identifier, *, api_key=None, base_url=None, validate=True):
     if (
         not isinstance(identifier, str)
         or ":" not in identifier
@@ -134,7 +135,8 @@ def configuration(identifier, *, api_key=None, base_url=None):
         or os.getenv(KEYS[provider])
         or (os.getenv("GEMINI_API_KEY") if provider == "google" else None)
     )
-    return ModelConfig(identifier, key, base_url or DEFAULT_URLS[provider]).validate()
+    resolved = ModelConfig(identifier, key, base_url or DEFAULT_URLS[provider])
+    return resolved.validate() if validate else resolved
 
 
 def completion(provider, body):
@@ -368,6 +370,7 @@ def aggregate(provider, observations):
         ),
         "cost_usd": None,
     }
+    result["field_coverage"] = {}
     for canonical, original in zip(
         ("input_tokens", "output_tokens", "total_tokens"), mapping
     ):
@@ -381,6 +384,15 @@ def aggregate(provider, observations):
             else None
         )
         result[canonical] = total if total is None or total <= 2**53 - 1 else None
+        known = [row["value"] for row in rows if row.get("state") == "observed"]
+        subtotal = sum(known) if known else None
+        overflow = subtotal is not None and subtotal > 2**53 - 1
+        result["field_coverage"][canonical] = {
+            "observed_attempts": len(known),
+            "prepared_attempts": len(rows),
+            "known_subtotal": subtotal if not overflow else None,
+            "overflow": overflow,
+        }
     return result
 
 
@@ -413,6 +425,9 @@ class Boundary:
             raise ValueError("only nonstreaming JSON is qualified")
         self.active = {
             "status": "prepared",
+            "started_at": now(),
+            "request_method": request.method,
+            "request_path": request.url.path,
             "request_body": body,
             "request_sha256": self.receipt.sha(raw),
             "response": None,
@@ -427,6 +442,7 @@ class Boundary:
         item = self.active
         item.update(
             status="received",
+            headers_received_at=now(),
             http_status=response.status_code,
             request_id=response.headers.get("x-request-id")
             or response.headers.get("request-id"),
@@ -468,6 +484,7 @@ class Boundary:
             raise
         finally:
             await response.aclose()
+            item["response_hook_finished_at"] = now()
 
 
 async def create_model(config, receipt, stack, transport=None):

@@ -125,6 +125,10 @@ def run_suite(
             result["case_sha256"] = sha(case.model_dump(mode="json"))
             result["elapsed_ms"] = round((perf_counter() - started) * 1000, 2)
             results.append(result)
+    return report_results(cases, models, results, execution, suite_started_at)
+
+
+def report_results(cases, models, results, execution, suite_started_at):
     summaries = {}
     for model in models:
         rows = [row for row in results if row["model"] == model]
@@ -132,6 +136,9 @@ def run_suite(
         summaries[model] = {
             "cases": len(rows),
             "completed": len(completed),
+            "not_started": sum(row["status"] == "not_started" for row in rows),
+            "errors": sum(row["status"] == "error" for row in rows),
+            "interrupted": sum(row["status"] == "interrupted" for row in rows),
             "exact_matches": sum(row["grade"]["exact_match"] for row in completed),
             "constraint_passes": sum(
                 row["grade"]["constraints_pass"] for row in completed
@@ -157,8 +164,25 @@ def run_suite(
                 and type(row["usage"].get(field)) is int
                 and 0 <= row["usage"][field] <= 2**53 - 1
             ]
-            subtotal = sum(observed) if observed else None
-            overflow = subtotal is not None and subtotal > 2**53 - 1
+            partial = []
+            source_overflow = False
+            for row in rows:
+                usage = row.get("usage") or {}
+                coverage = (
+                    usage.get("field_coverage", {}).get(field, {})
+                    if isinstance(usage, dict)
+                    else {}
+                )
+                source_overflow = source_overflow or coverage.get("overflow", False)
+                value = coverage.get("known_subtotal")
+                if (
+                    usage.get(field) is None
+                    and type(value) is int
+                    and 0 <= value <= 2**53 - 1
+                ):
+                    partial.append(value)
+            subtotal = sum(observed + partial) if observed or partial else None
+            overflow = source_overflow or subtotal is not None and subtotal > 2**53 - 1
             summaries[model]["usage"][field] = (
                 subtotal if len(observed) == len(rows) and not overflow else None
             )
@@ -168,6 +192,10 @@ def run_suite(
                 "known_subtotal": subtotal if not overflow else None,
                 "overflow": overflow,
             }
+            if partial:
+                summaries[model]["usage_coverage"][field]["partially_observed_rows"] = (
+                    len(partial)
+                )
     choices = defaultdict(dict)
     for row in results:
         if row["status"] == "completed":

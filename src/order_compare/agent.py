@@ -54,7 +54,15 @@ class CaseContext:
         return result
 
 
-def build_agent(model: str | Model) -> Agent:
+def build_agent(model: str | Model, *, _native_owner=None) -> Agent:
+    if (
+        isinstance(model, str)
+        or getattr(model, "system", None) not in {"test", "function"}
+        and _native_owner is None
+    ):
+        raise ValueError(
+            "native execution requires the owned propose/propose_async identifier entry point"
+        )
     agent = Agent(
         model,
         deps_type=CaseContext,
@@ -121,6 +129,10 @@ def propose(
         except RuntimeError:
             return asyncio.run(propose_async(case, model, **options))
         raise RuntimeError("use propose_async from an active event loop")
+    if getattr(model, "system", None) not in {"test", "function"}:
+        raise ValueError(
+            "native Model instances require the owned identifier entry point; test/function models remain caller-owned"
+        )
     context = CaseContext(case)
     result = build_agent(model).run_sync(
         f"Resolve order {case.order_id}. Call read_order, "
@@ -135,6 +147,8 @@ def propose(
             "input_tokens": usage.input_tokens,
             "output_tokens": usage.output_tokens,
             "total_tokens": usage.total_tokens,
+            "source": "caller-owned test/function model; SDK-normalized counters",
+            "cost_usd": None,
         },
         context.tool_calls,
     )

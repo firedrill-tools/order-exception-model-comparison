@@ -226,3 +226,21 @@ def grade_result(case, proposal, tool_calls):
     from order_compare.benchmark import grade
 
     return grade(case, proposal, EXPECTED[case.case_id], tool_calls)
+
+
+def test_native_model_instance_cannot_bypass_original_completion_and_owner_boundary():
+    from order_compare.agent import propose, build_agent
+    from pydantic_ai.models.test import TestModel
+
+    class UnownedNative(TestModel):
+        @property
+        def system(self):
+            return "openai"
+
+    model = UnownedNative()
+    with pytest.raises(ValueError, match="owned"):
+        propose(CASES[0], model)
+    with pytest.raises(ValueError, match="owned"):
+        build_agent(model)
+    with pytest.raises(ValueError, match="owned"):
+        build_agent("openai:gpt-synthetic")

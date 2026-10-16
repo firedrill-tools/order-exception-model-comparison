@@ -56,7 +56,7 @@ async def propose_async(
         receipt.save()
         receipt.guard()
         native, _ = await create_model(config, receipt, stack, transport)
-        agent = build_agent(native)
+        agent = build_agent(native, _native_owner=receipt)
         async with asyncio.timeout_at(receipt.deadline):
             with capture_run_messages() as messages:
                 async with agent:
@@ -132,6 +132,8 @@ async def propose_async(
     if failure is not None:
         failure.usage = measured
         failure.receipt_path = str(receipt.path)
+        failure.recording_failed = receipt.recording_error is not None
+        failure.cleanup_confirmed = receipt.data["native_clients_closed"]
         failure.evidence = receipt.data
         raise failure
     return proposal, measured, list(context.tool_calls)

@@ -490,3 +490,28 @@ def test_source_guard_change_after_dispatch_blocks_read_release(tmp_path):
         and data["proposal"] is None
         and transport.closed
     )
+
+
+def test_synchronous_source_check_cannot_dispatch_after_consuming_the_operation_deadline(
+    tmp_path,
+):
+    import time
+
+    def slow_source():
+        time.sleep(0.04)
+
+    transport = transport_for("openai")
+    with pytest.raises(TimeoutError) as error:
+        asyncio.run(
+            propose_async(
+                CASES[0],
+                **options("openai", transport, tmp_path),
+                source_guard=slow_source,
+                timeout_seconds=0.01,
+            )
+        )
+    assert (
+        transport.requests == []
+        and error.value.usage["requests"] == 0
+        and error.value.evidence["status"] == "failed"
+    )

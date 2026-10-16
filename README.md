@@ -7,8 +7,8 @@ A [Pydantic AI](https://pydantic.dev/docs/ai/models/overview/) agent proposes re
 Requires Python 3.12+ and `uv`:
 
 ```sh
-uv sync --extra test
-uv run pytest -q
+uv sync --locked --extra test
+PYDANTIC_AI_NO_BANNER=1 uv run --locked pytest -q
 uv run python -m order_compare --model openai:YOUR_MODEL --model anthropic:YOUR_MODEL
 ```
 
@@ -17,7 +17,7 @@ That command is a dry run and reports the planned five cases per model. For a li
 ```sh
 uv run python -m order_compare \
   --model openai:YOUR_MODEL --model anthropic:YOUR_MODEL --model google:YOUR_MODEL \
-  --live --max-runs 15 --output comparison.report.json
+  --live --max-runs 15 --max-provider-requests 90 --output comparison.report.json
 ```
 
 The harness runs sequentially and records per-case failures rather than substituting canned answers. The report file is ignored by Git. `--max-runs` must cover the planned number of case/model pairs; an agent run can make multiple provider requests to use tools, and the report records those requests. The example never changes an order or issues a real refund. `grader/expected.json` stays outside the model prompt.
@@ -38,7 +38,7 @@ At the initial integrity checkpoint, an actual pinned OpenAI/Pydantic AI loopbac
 
 ## Native case checkpoint
 
-41 checks pass locally, including actual pinned Pydantic AI2.56.0/OpenAI3.31.0/Anthropic1.14.0/Google GenAI2.31.0 native tool/proposal paths. `propose` with a model identifier owns its native resources; `propose_async` is the async API. Explicit keys/endpoints support HTTPS or loopbackHTTP without URL credentials/query/fragment. Ambient token/profile credentials, proxies and redirects are not borrowed; Gemini uses its explicit Developer API backend. No model is substituted. Caller-supplied Model instances remain caller-owned and framework-only evidence is labeled separately.
+41 checks pass locally, including actual pinned Pydantic AI2.56.0/OpenAI3.31.0/Anthropic1.14.0/Google GenAI2.31.0 native tool/proposal paths. `propose` with a model identifier owns its native resources; `propose_async` is the async API. Explicit keys/endpoints support HTTPS or loopbackHTTP without URL credentials/query/fragment. Ambient token/profile credentials, proxies and redirects are not borrowed; Gemini uses its explicit Developer API backend. No model is substituted. Injected TestModel/FunctionModel instances remain caller-owned and framework-only evidence is labeled separately. Native Model instances and direct native builders cannot bypass the owned identifier entry point.
 
 Every original provider turn must be a coherent completed tool turn before tools/output are released. OpenAI requires tool_calls, Anthropic tool_use, Gemini unblocked STOP function calls. Unknown/refused/truncated/pending/mixed output-read content fails before release. The output tool is submit_proposal; actual three read functions remain identical across providers. Tool receipts preserve actual arguments, source case/policy hashes, original result/hash and success; wrong order reads remain failed attempts without read credit. External case labels/expectations are excluded from prompts and tool results. The model proposes only; no order/payment changes occur.
 
@@ -47,3 +47,16 @@ Owned clients/SDKs use public provider constructors, zero SDK retries, nonstream
 Private0700 directories/0600 atomic flushed traces precede credentials/provider work. Recording faults prevent later calls or proposal release; native cancellation/deadline/client cleanup finishes before final failed evidence. Failed close cannot become a false closed proof through an emptied-stack retry. Source guard failures block later work. Persistent final recording failure exposes failed in-memory evidence/unknown durable status. Actual controlled tests qualify all three providers, truncation before reads/final output, HTTP failure usage, wrong-order evidence, recording/deadline/cancellation/close/source faults and normalization differences. Retained1MiB bounds do not establish hard wire/peak-memory/whole-run wall promises; synchronous local serialization/recording and cleanup remain outside them.
 
 Normal comparison CLI budgets/signals/private suite receipts, full original source/oracle-file continuity, richer versioned cases/private workspaces and fresh distributions remain active. [PLAN.md](PLAN.md) retains these tasks. No paid provider or actual order/payment action has been used; live semantic/billing/Firedrill/publication gates stay parked.
+
+
+## Immutable study and native comparison CLI
+
+62 checks pass locally. [Native41 passed Linux at9ec7dde](https://github.com/firedrill-tools/order-exception-model-comparison/actions/runs/38897547635). The async comparison uses one validated immutable Study with64-case/eight-model support limits. It snapshots original case/expectation bytes, typed facts and hashes privately; external oracle data never enters model prompts/tools. Every configuration sees the same case order/source/policy, and native keys/endpoints are captured once for the suite. Optional transport factories receive independent case copies. Source changes stop the suite before further dispatch.
+
+Dry-run remains key-free and reports both case/model pairs and the worst-case prepared HTTP ceiling (six per pair). Making native requests requires `--live`, sufficient `--max-runs` and sufficient `--max-provider-requests`. These are prepared attempt bounds, not inferred upstream receipt or a price quote. `--openai-base-url`, `--anthropic-base-url`, `--google-base-url`, `--case-timeout-seconds`, `--timeout-seconds` and `--output-root` configure explicit endpoints/budgets/evidence. Native models, exact policy/tool behavior and case order are preserved; provider-specific usage meanings remain labeled rather than treated as equivalent billed units.
+
+A provider/case failure with confirmed cleanup is recorded and the suite continues. Source, recording, unconfirmed cleanup or parent interruption stops later work. Remaining population rows become not_started, with no fake usage or grade. Partial raw token subtotals survive even when an interrupted later request makes full totals unknown. Original SDK usage stays separate. Every actual case has a private attempt trace; a separate private suite trace preserves original source bytes, oracle snapshot, case results and the final/partial report.
+
+Normal CLI local HTTP qualifies all three providers, same input/policy authority, explicit auth/proxy policy, continuation after rejected length output, request-ceiling/collision preflight, missing-key evidence and SIGINT/SIGTERM/SIGHUP cleanup. The signal path saves a partial comparison containing interrupted/unstarted rows after native drain. `--output` publishes a new0600 report exclusively; existing reports are preserved. A successful complete comparison returns0, completed policy/exact failures2, provider/infrastructure failure1, and signals130/143/129. Private traces distinguish original source/protocol/measurement evidence from structural grading; no semantic or billing quality is inferred.
+
+Richer hash-bound source populations/private initialization/readback/reset and fresh locked distributions remain active in [PLAN.md](PLAN.md). This is a standalone proposal/comparison application; all actual test endpoints were local/synthetic, no paid provider or order/payment mutation. Live semantic/billing review, qualified new Firedrill and publication/license remain parked.

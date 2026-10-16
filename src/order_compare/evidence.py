@@ -76,6 +76,10 @@ class Receipt:
             raise TimeoutError("case operation deadline exceeded")
         if self.source_guard:
             self.source_guard()
+        if task is not None and task.cancelling():
+            raise asyncio.CancelledError("comparison cancellation requested")
+        if time.monotonic() >= self.deadline:
+            raise TimeoutError("operation deadline exceeded after source check")
 
     def save(self, final=False):
         if self.recording_error and not final:
