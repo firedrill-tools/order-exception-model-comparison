@@ -13,3 +13,7 @@ Suite62 checkpoint: immutable Study/original raw source+oracle snapshots and exa
 
 
 Data/distribution97 checkpoint: order-comparison-studies1.0.0 has12 hash-bound populations/four profiles, coherent24-order/12-customer/44-payment busy source, preserved original five cases/oracle and exact integer boundaries across all three SDKs. Keep detailed fictional imported history/task/fixture identity and external oracle outside model context; no prior provider/actual payment observations are invented. Private key-free exclusive init/readback/reset preserves collisions/old evidence, distinguishes valid current edits from seed history and refuses malformed/missing source without repair. Caller fixture labels cannot claim live/native. Public CLI banner control owns console output only. Full97 plus fresh locked wheel/sdist/complete-source/default source/installed actual native CLI/missing-key gates must pass; verify exact Linux/artifact hash before independent completion. External gates remain parked; then Wave3.
+
+## Current Firedrill integration
+
+Released CLI/SDK 2.2.2, current command invocation, remote operator MCP and recovery are documented in [firedrill/README.md](firedrill/README.md). Offline checks preserve actual private source/native-key behavior and explicit model/budget selection. Authenticated persisted runs and live quality/cost remain separate parked gates.

@@ -28,4 +28,4 @@ testpaths = ["tests"]
 "grader/expected.json" = "order_compare/original_data/expected.json"
 
 [tool.hatch.build.targets.sdist]
-include = ["src", "data", "fixtures", "grader", "tests", "scripts", ".github", "README.md", "AGENTS.md", "PLAN.md", "COMPATIBILITY.md", "pyproject.toml", "uv.lock", ".gitignore"]
+include = ["firedrill", "src", "data", "fixtures", "grader", "tests", "scripts", ".github", "README.md", "AGENTS.md", "PLAN.md", "COMPATIBILITY.md", "pyproject.toml", "uv.lock", ".gitignore"]

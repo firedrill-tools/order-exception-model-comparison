@@ -8,3 +8,6 @@ __pycache__/
 .runs/
 dist/
 *.egg-info/
+
+node_modules/
+.runs/

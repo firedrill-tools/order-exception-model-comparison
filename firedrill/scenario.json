@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "2026-10-14",
+  "name": "order-exception-model-comparison \u2014 actual bounded native application",
+  "target": {
+    "kind": "command",
+    "argv": [
+      "node",
+      "firedrill/target.mjs"
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "replacement",
+      "name": "replacement compare",
+      "input": {
+        "caseId": "replacement",
+        "action": "compare",
+        "models": [
+          "openai:gpt-4.1"
+        ],
+        "maxRuns": 32,
+        "maxProviderRequests": 192
+      }
+    },
+    {
+      "id": "partial-refund",
+      "name": "partial-refund compare",
+      "input": {
+        "caseId": "partial-refund",
+        "action": "compare",
+        "models": [
+          "openai:gpt-4.1"
+        ],
+        "maxRuns": 32,
+        "maxProviderRequests": 192
+      }
+    },
+    {
+      "id": "busy-operations",
+      "name": "busy-operations plan",
+      "input": {
+        "caseId": "busy-operations",
+        "action": "plan",
+        "models": [
+          "openai:gpt-4.1"
+        ],
+        "maxRuns": 32,
+        "maxProviderRequests": 192
+      }
+    }
+  ],
+  "repetitions": 1,
+  "concurrency": 1,
+  "limits": {
+    "timeoutMs": 240000,
+    "maxRuns": 3,
+    "maxOutputBytes": 4194304
+  }
+}
