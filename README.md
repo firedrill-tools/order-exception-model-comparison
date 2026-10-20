@@ -4,6 +4,8 @@ A [Pydantic AI](https://pydantic.dev/docs/ai/models/overview/) agent proposes re
 
 Simulate this Pydantic AI AI agent with [Firedrill](https://firedrill.run/), a simulation platform for AI agents. Start with the [Firedrill setup and simulation guide](firedrill/README.md); your coding agent can operate it while this application's runner stays in your repository or CI.
 
+This example repository is publicly viewable. A project license has not been selected.
+
 ## Run
 
 Requires Python 3.12+ and `uv`:
@@ -35,7 +37,7 @@ Explore related applications in the [Firedrill example catalog](https://github.c
 
 Failed caller/framework usage is retained when available; absent fields remain null and coverage records the known subtotal/observed rows. Overflowed totals remain unknown. Costs are unknown. This initial accounting checkpoint does not yet establish original provider HTTP measurements; normalized framework/caller provenance stays explicit. A comparison's first proposer cannot alter the next model's input or grading source. Original five business cases and external expectations are unchanged.
 
-At the initial integrity checkpoint, an actual pinned OpenAI/Pydantic AI loopbackHTTP probe returned a valid final structured proposal with finish_reason length and graded success. Owned native completion/measurement/lifecycle/private failure evidence, normal CLI budgets/signals, richer cases/private workspaces and fresh locked distributions remain in [PLAN.md](PLAN.md). No paid provider or real order/payment action was used. Live semantic/billing/Firedrill/publication gates remain parked.
+At the initial integrity checkpoint, an actual pinned OpenAI/Pydantic AI loopbackHTTP probe returned a valid final structured proposal with finish_reason length and graded success. Owned native completion/measurement/lifecycle/private failure evidence, normal CLI budgets/signals, richer cases/private workspaces and fresh locked distributions remain in [PLAN.md](PLAN.md). No paid provider or real order/payment action was used. At that checkpoint, live semantic/billing/Firedrill/publication gates remained parked.
 
 
 ## Native case checkpoint
@@ -48,7 +50,7 @@ Owned clients/SDKs use public provider constructors, zero SDK retries, nonstream
 
 Private0700 directories/0600 atomic flushed traces precede credentials/provider work. Recording faults prevent later calls or proposal release; native cancellation/deadline/client cleanup finishes before final failed evidence. Failed close cannot become a false closed proof through an emptied-stack retry. Source guard failures block later work. Persistent final recording failure exposes failed in-memory evidence/unknown durable status. Actual controlled tests qualify all three providers, truncation before reads/final output, HTTP failure usage, wrong-order evidence, recording/deadline/cancellation/close/source faults and normalization differences. Retained1MiB bounds do not establish hard wire/peak-memory/whole-run wall promises; synchronous local serialization/recording and cleanup remain outside them.
 
-Normal comparison CLI budgets/signals/private suite receipts, full original source/oracle-file continuity, richer versioned cases/private workspaces and fresh distributions remain active. [PLAN.md](PLAN.md) retains these tasks. No paid provider or actual order/payment action has been used; live semantic/billing/Firedrill/publication gates stay parked.
+Normal comparison CLI budgets/signals/private suite receipts, full original source/oracle-file continuity, richer versioned cases/private workspaces and fresh distributions remain active. [PLAN.md](PLAN.md) retains these tasks. No paid provider or actual order/payment action has been used; at that checkpoint, live semantic/billing/Firedrill/publication gates remained parked.
 
 
 ## Immutable study and native comparison CLI
@@ -61,7 +63,7 @@ A provider/case failure with confirmed cleanup is recorded and the suite continu
 
 Normal CLI local HTTP qualifies all three providers, same input/policy authority, explicit auth/proxy policy, continuation after rejected length output, request-ceiling/collision preflight, missing-key evidence and SIGINT/SIGTERM/SIGHUP cleanup. The signal path saves a partial comparison containing interrupted/unstarted rows after native drain. `--output` publishes a new0600 report exclusively; existing reports are preserved. A successful complete comparison returns0, completed policy/exact failures2, provider/infrastructure failure1, and signals130/143/129. Private traces distinguish original source/protocol/measurement evidence from structural grading; no semantic or billing quality is inferred.
 
-Data/private workspace and distribution qualification follows below; [PLAN.md](PLAN.md) retains final CI and the portfolio handoff. This is a standalone proposal/comparison application; all actual test endpoints were local/synthetic, no paid provider or order/payment mutation. Live semantic/billing review, authenticated Firedrill persistence verification and publication/license remain parked.
+Data/private workspace and distribution qualification follows below; [PLAN.md](PLAN.md) retains final CI and the portfolio handoff. This is a standalone proposal/comparison application; all actual test endpoints were local/synthetic, no paid provider or order/payment mutation. Live semantic/billing review, authenticated Firedrill persistence verification and license remain parked.
 
 
 ## Versioned study populations
@@ -104,9 +106,9 @@ uv build
 PYDANTIC_AI_NO_BANNER=1 uv run --locked python scripts/check_distribution.py
 ```
 
-Wheel data includes all thirteen population/index JSON files and the exact original five-case/expected files. The sdist includes all source/data/original fixtures/grader/tests/helpers/scripts/docs/CI/lockfiles. The deterministic complete source archive adds an exact per-file SHA256/size/mode manifest and is generated independently of Git/installed caches. Fresh locked wheel/sdist/complete-source environments outside checkout qualify console/module/default key-free planning, all twelve private populations/reset, original five native CLI cases over owned HTTP, exclusive private output and missing-key failed case receipts. Full97 suite runs from complete archived source and every original file hash remains unchanged. Repeated source bytes agree. CI uploads distributions and qualification.json; no public release/license is implied.
+Wheel data includes all thirteen population/index JSON files and the exact original five-case/expected files. The sdist includes all source/data/original fixtures/grader/tests/helpers/scripts/docs/CI/lockfiles. The deterministic complete source archive adds an exact per-file SHA256/size/mode manifest and is generated independently of Git/installed caches. Fresh locked wheel/sdist/complete-source environments outside checkout qualify console/module/default key-free planning, all twelve private populations/reset, original five native CLI cases over owned HTTP, exclusive private output and missing-key failed case receipts. Full97 suite runs from complete archived source and every original file hash remains unchanged. Repeated source bytes agree. CI uploads distributions and qualification.json; no package publication/license is implied.
 
-Independent application implementation is complete; final exact Linux/artifact portability and catalog evidence are recorded in [COMPATIBILITY.md](COMPATIBILITY.md). Live provider availability/semantic billing review, authenticated Firedrill persistence verification and publication/license remain parked. No actual order/payment mutation is implemented or authorized. Continue the portfolio with Wave3.
+Independent application implementation is complete; final exact Linux/artifact portability and catalog evidence are recorded in [COMPATIBILITY.md](COMPATIBILITY.md). Live provider availability/semantic billing review, authenticated Firedrill persistence verification and license remain parked. No actual order/payment mutation is implemented or authorized. Continue the portfolio with Wave3.
 
 ## Current Firedrill integration
 
