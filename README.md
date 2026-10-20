@@ -28,7 +28,7 @@ The harness runs sequentially and records per-case failures rather than substitu
 
 Local tests exercise the grade logic and Pydantic AI path without provider keys. They do not provide a live comparison or measured provider usage. A real comparison needs keys, model availability and a deliberate call budget. A checked-in Firedrill adapter uses the released CLI/SDK; authenticated persisted-run verification remains separate. Dependencies are pinned in `uv.lock`.
 
-Explore related applications in the [Firedrill example catalog](https://github.com/firedrill-tools/firedrill-example-catalog). Product and setup references: [Firedrill](https://firedrill.run/) and the [official developer documentation](https://docs.firedrill.run/). Use documentation matching the qualified release; this repository records its current integration limits above.
+Explore related applications in the [Firedrill examples](https://docs.firedrill.run/guides/examples). Product and setup references: [Firedrill](https://firedrill.run/) and the [official developer documentation](https://docs.firedrill.run/). Use documentation matching the qualified release; this repository records its current integration limits above.
 
 
 ## Development checkpoint
