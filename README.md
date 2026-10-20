@@ -1,6 +1,8 @@
-# Order exception model comparison
+# Order exception model comparison with Pydantic AI
 
 A [Pydantic AI](https://pydantic.dev/docs/ai/models/overview/) agent proposes resolutions for the same synthetic order cases using configurable OpenAI, Anthropic and Gemini models. Each run uses the same order, customer-request and policy tools. A separate rubric checks exact action and amount, order identity, policy constraints, tool use, request counts, token usage and elapsed time.
+
+Simulate this Pydantic AI AI agent with [Firedrill](https://firedrill.run/), a simulation platform for AI agents. Start with the [Firedrill setup and simulation guide](firedrill/README.md); your coding agent can operate it while this application's runner stays in your repository or CI.
 
 ## Run
 
@@ -22,7 +24,7 @@ uv run python -m order_compare \
 
 The harness runs sequentially and records per-case failures rather than substituting canned answers. The report file is ignored by Git. `--max-runs` must cover the planned number of case/model pairs; an agent run can make multiple provider requests to use tools, and the report records those requests. The example never changes an order or issues a real refund. `grader/expected.json` stays outside the model prompt.
 
-Local tests exercise the grade logic and Pydantic AI path without provider keys. They do not provide a live comparison or measured provider usage. A real comparison needs keys, model availability and a deliberate call budget. Firedrill integration awaits the qualified new release. Dependencies are pinned in `uv.lock`.
+Local tests exercise the grade logic and Pydantic AI path without provider keys. They do not provide a live comparison or measured provider usage. A real comparison needs keys, model availability and a deliberate call budget. A checked-in Firedrill adapter uses the released CLI/SDK; authenticated persisted-run verification remains separate. Dependencies are pinned in `uv.lock`.
 
 Explore related applications in the [Firedrill example catalog](https://github.com/firedrill-tools/firedrill-example-catalog). Product and setup references: [Firedrill](https://firedrill.run/) and the [official developer documentation](https://docs.firedrill.run/). Use documentation matching the qualified release; this repository records its current integration limits above.
 
@@ -59,7 +61,7 @@ A provider/case failure with confirmed cleanup is recorded and the suite continu
 
 Normal CLI local HTTP qualifies all three providers, same input/policy authority, explicit auth/proxy policy, continuation after rejected length output, request-ceiling/collision preflight, missing-key evidence and SIGINT/SIGTERM/SIGHUP cleanup. The signal path saves a partial comparison containing interrupted/unstarted rows after native drain. `--output` publishes a new0600 report exclusively; existing reports are preserved. A successful complete comparison returns0, completed policy/exact failures2, provider/infrastructure failure1, and signals130/143/129. Private traces distinguish original source/protocol/measurement evidence from structural grading; no semantic or billing quality is inferred.
 
-Data/private workspace and distribution qualification follows below; [PLAN.md](PLAN.md) retains final CI and the portfolio handoff. This is a standalone proposal/comparison application; all actual test endpoints were local/synthetic, no paid provider or order/payment mutation. Live semantic/billing review, qualified new Firedrill and publication/license remain parked.
+Data/private workspace and distribution qualification follows below; [PLAN.md](PLAN.md) retains final CI and the portfolio handoff. This is a standalone proposal/comparison application; all actual test endpoints were local/synthetic, no paid provider or order/payment mutation. Live semantic/billing review, authenticated Firedrill persistence verification and publication/license remain parked.
 
 
 ## Versioned study populations
@@ -104,7 +106,7 @@ PYDANTIC_AI_NO_BANNER=1 uv run --locked python scripts/check_distribution.py
 
 Wheel data includes all thirteen population/index JSON files and the exact original five-case/expected files. The sdist includes all source/data/original fixtures/grader/tests/helpers/scripts/docs/CI/lockfiles. The deterministic complete source archive adds an exact per-file SHA256/size/mode manifest and is generated independently of Git/installed caches. Fresh locked wheel/sdist/complete-source environments outside checkout qualify console/module/default key-free planning, all twelve private populations/reset, original five native CLI cases over owned HTTP, exclusive private output and missing-key failed case receipts. Full97 suite runs from complete archived source and every original file hash remains unchanged. Repeated source bytes agree. CI uploads distributions and qualification.json; no public release/license is implied.
 
-Independent application implementation is complete; final exact Linux/artifact portability and catalog evidence are recorded in [COMPATIBILITY.md](COMPATIBILITY.md). Live provider availability/semantic billing review, qualified new Firedrill and publication/license remain parked. No actual order/payment mutation is implemented or authorized. Continue the portfolio with Wave3.
+Independent application implementation is complete; final exact Linux/artifact portability and catalog evidence are recorded in [COMPATIBILITY.md](COMPATIBILITY.md). Live provider availability/semantic billing review, authenticated Firedrill persistence verification and publication/license remain parked. No actual order/payment mutation is implemented or authorized. Continue the portfolio with Wave3.
 
 ## Current Firedrill integration
 
